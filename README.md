@@ -203,19 +203,7 @@ validate( 'less_than[5]', 6 );
 
 #### interval
 
-Validates if a `value` is resides between a specified `interval` (inclusive).
-
-``` javascript
-validate( 'interval[5,7]', 6 );
-// Returns true
-
-validate( 'interval[5,7]', 4 );
-// Returns false
-```
-
-#### interval
-
-Validates if a `value` is resides between a specified `interval` (inclusive).
+Validates if a `value` resides between a specified `interval` (inclusive).
 
 ``` javascript
 validate( 'interval[5,7]', 6 );

@@ -4,6 +4,7 @@ Validator
 
 > Utility for validating input arguments.
 
+The primary motivation for this module to validate input arguments provided to publicly exposed methods. Other utilities exist but are either limited, more verbose (use method chaining), used as if asynchronous (callbacks), or part of some larger utility library (e.g., [underscore](http://lodash.com/)).  
 
 
 ## Installation
@@ -283,7 +284,7 @@ $ node ./examples/index.js
 
 ## Notes
 
-Inspired by [validate.js]( http://rickharrison.github.io/validate.js/ ).
+Inspired by [validate.js]( http://rickharrison.github.io/validate.js/ ) and [Chai](http://chaijs.com/api/assert/).
 
 
 ## Tests

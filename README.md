@@ -14,16 +14,16 @@ $ npm install input-validation
 
 ## Usage
 
-To create a validator,
+To start validating,
 
 ``` javascript
 var validate = require( 'input-validation' );
 ```
 
-The following validation methods are available...
+The following validation rules are available...
 
 
-#### validate.
+#### 
 
 
 
@@ -39,6 +39,11 @@ To run the example code from the top-level application directory,
 ``` bash
 $ node ./examples/index.js
 ```
+
+
+## Notes
+
+Inspired by [validate.js]( http://rickharrison.github.io/validate.js/ ).
 
 
 ## Tests

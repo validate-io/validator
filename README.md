@@ -268,7 +268,7 @@ validate( 'interval[5,7]', 4 );
 
 #### length
 
-Validates if a `value` is either exactly a specified `length` or within an `interval`. This method applies only to `string` and `array` value types.
+Validates if a `value` is either exactly a specified `length` or within an `interval` (inclusive). This method applies only to `string` and `array` value types.
 
 ``` javascript
 validate( 'length[2]', 'ok' );

@@ -69,7 +69,7 @@ Input validation works by specifying rules as a serialized string, where each ru
 var rules = 'object|properties[beep,boop]';
 ```
 
-In the example, `object` and `has_properties` are the rules. Some rules require additional parameters. These parameters are specified as a comma-delimited string within brackets. Hence, `[beep,boop]` specifies required properties.
+In the example, `object` and `properties` are the rules. Some rules require additional parameters. These parameters are specified as a comma-delimited string within brackets. Hence, `[beep,boop]` specifies required properties.
 
 
 ### Rules 

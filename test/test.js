@@ -185,6 +185,31 @@ describe( 'input-validation', function tests() {
 
 	}); // end TESTS boolean
 
+	describe( 'regexp', function tests() {
+
+		it( 'should positively validate', function test() {
+			assert.ok( !validate( 'regexp', /\.+/ ) );
+		});
+
+		it( 'should negatively validate', function test() {
+			var values = [
+					5,
+					[],
+					'5',
+					function(){},
+					null,
+					NaN,
+					{},
+					undefined
+				];
+
+			for ( var i = 0; i < values.length; i++ ) {
+				assert.ok( validate( 'regexp', values[i] ) );
+			}
+		});
+
+	}); // end TESTS regexp
+
 	describe( 'undefined', function tests() {
 
 		it( 'should positively validate', function test() {
@@ -247,6 +272,7 @@ describe( 'input-validation', function tests() {
 					function(){},
 					null,
 					{},
+					NaN,
 					undefined
 				];
 
@@ -272,6 +298,7 @@ describe( 'input-validation', function tests() {
 					function(){},
 					null,
 					{},
+					NaN,
 					undefined
 				];
 
@@ -281,6 +308,57 @@ describe( 'input-validation', function tests() {
 		});
 
 	}); // end TESTS integer
+
+	describe( 'float', function tests() {
+
+		it( 'should positively validate', function test() {
+			assert.ok( !validate( 'float', 5.5 ) );
+		});
+
+		it( 'should negatively validate', function test() {
+			var values = [
+					5,
+					true,
+					[],
+					'5',
+					function(){},
+					null,
+					{},
+					NaN,
+					undefined
+				];
+
+			for ( var i = 0; i < values.length; i++ ) {
+				assert.ok( validate( 'float', values[i] ) );
+			}
+		});
+
+	}); // end TESTS float
+
+	describe( 'nan', function tests() {
+
+		it( 'should positively validate', function test() {
+			assert.ok( !validate( 'nan', NaN ) );
+		});
+
+		it( 'should negatively validate', function test() {
+			var values = [
+					true,
+					[],
+					'5',
+					function(){},
+					null,
+					{},
+					5,
+					undefined
+				];
+
+			for ( var i = 0; i < values.length; i++ ) {
+				assert.ok( validate( 'nan', values[i] ) );
+			}
+		});
+
+	}); // end TESTS nan
 
 	describe( 'empty', function tests() {
 
@@ -316,6 +394,35 @@ describe( 'input-validation', function tests() {
 
 	}); // end TESTS empty
 
+	describe( 'equals', function tests() {
+
+		it( 'should positively validate', function test() {
+			var err;
+			
+			err = validate( 'equals[1]', 1 );
+			assert.ok( !err );
+		});
+
+		it( 'should negatively validate', function test() {
+			var values = [
+					0,
+					true,
+					[],
+					'5',
+					function(){},
+					null,
+					NaN,
+					{'foo':'bar'},
+					undefined
+				];
+
+			for ( var i = 0; i < values.length; i++ ) {
+				assert.ok( validate( 'equals[1]', values[i] ) );
+			}
+		});
+
+	}); // end TESTS greater_than
+
 	describe( 'greater_than', function tests() {
 
 		it( 'should positively validate', function test() {
@@ -333,6 +440,7 @@ describe( 'input-validation', function tests() {
 					'5',
 					function(){},
 					null,
+					NaN,
 					{'foo':'bar'},
 					undefined
 				];
@@ -361,6 +469,7 @@ describe( 'input-validation', function tests() {
 					'5',
 					function(){},
 					null,
+					NaN,
 					{'foo':'bar'},
 					undefined
 				];
@@ -500,6 +609,9 @@ describe( 'input-validation', function tests() {
 			var err;
 			
 			err = validate( 'matches[beep,boop]', 'beep' );
+			assert.ok( !err );
+
+			err = validate( 'matches[5,7,9]', 5 );
 			assert.ok( !err );
 		});
 

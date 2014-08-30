@@ -103,6 +103,18 @@ validate( 'boolean', 1 );
 // Returns false
 ```
 
+#### regexp
+
+Validates if a `value` is a regular expression.
+
+``` javascript
+validate( 'regexp', /.+/ );
+// Returns true
+
+validate( 'regexp', '/.+/' );
+// Returns false
+```
+
 #### undefined
 
 Validates if a `value` is `undefined`.
@@ -154,6 +166,31 @@ validate( 'integer', 5.256 );
 // Returns false
 ```
 
+#### float
+
+Validates if a `value` is a `float`.
+
+``` javascript
+validate( 'float', 5.256 );
+// Returns true
+
+validate( 'float', 5 );
+// Returns false
+```
+
+#### nan
+
+Validates if a `value` is `NaN`.
+
+``` javascript
+validate( 'nan', NaN );
+// Returns true
+
+validate( 'nan', 5.256 );
+// Returns false
+```
+
+
 #### empty
 
 Validates if a `value` is `empty`. This method only applies to `string`, `array`, and `object` value types.
@@ -177,6 +214,19 @@ validate( 'empty', [1] );
 validate( 'empty', {'beep':'boop'} );
 // Returns false
 ```
+
+#### equals
+
+Validates if a `value` is equal to a `comparator` value.
+
+``` javascript
+validate( 'equals[5]', 5 );
+// Returns true
+
+validate( 'equals[5]', 5.256 );
+// Returns false
+```
+
 
 #### greater_than
 
@@ -258,10 +308,13 @@ validate( 'has_properties[beep,boop,yo]', {
 
 #### matches
 
-Validates if a `value` matches a specified set of possible values. This method applies only to `string` value types.
+Validates if a `value` matches a specified set of possible values. This method applies only to `string` and `number` value types.
 
 ``` javascript
 validate( 'matches[beep,boop,bop]', 'beep' );
+// Returns true
+
+validate( 'matches[1,3,5,7,9]', 5 );
 // Returns true
 
 validate( 'matches[beep,boop,bop]', 'bap' );
@@ -271,7 +324,59 @@ validate( 'matches[beep,boop,bop]', 'bap' );
 
 ## Examples
 
+An example class publicly exposing setters.
+
 ``` javascript
+var validate = require( 'input-validation' );
+
+function Beep() {
+	this._boop = '';
+	this._bap = 11;
+	this._foo = 'beep';
+	return this;
+}
+
+Beep.prototype.boop = function( value ) {
+	var rules = 'string|length[0,12]';
+	if ( validate( rules, value ) ) {
+		throw new TypeError( 'boop()::invalid input argument. Must be a string less than 13 characters long.' );
+	}
+	this._boop = value;
+	return this;
+};
+
+Beep.prototype.bap = function( value ) {
+	var rules = 'number|greater_than[10]';
+	if ( validate( rules, value ) ) {
+		throw new TypeError( 'bap()::invalid input argument. Must be a number greater than 10.' );
+	}
+	this._bap = value;
+	return this;
+};
+
+Beep.prototype.foo = function( value ) {
+	var rules = 'matches[beep,boop,bap,foo,bar]';
+	if ( validate( rules, value ) ) {
+		throw new TypeError( 'foo()::invalid input argument. Must be one of the following: beep,boop,bap,foo,bar.' );
+	}
+	this._foo = value;
+	return this;
+};
+
+Beep.prototype.toString = function() {
+	var str = this._boop + ' ' + this._foo + ' ' + this._bap + '.';
+	return str;
+};
+
+
+var beep = new Beep();
+
+beep
+	.boop( 'Hello' )
+	.bap( 42 )
+	.foo( 'bar' );
+
+console.log( beep.toString() );
 
 ```
 

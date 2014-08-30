@@ -178,6 +178,8 @@ validate( 'float', 5 );
 // Returns false
 ```
 
+Note: in JavaScript, every numeric value is stored as a `float`. Here, we make a distinction based on whether the value has digits located after a decimal point. Hence, the distinction is semantic and not representative of the underlying representation. 
+
 #### nan
 
 Validates if a `value` is `NaN`.

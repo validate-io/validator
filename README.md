@@ -7,6 +7,44 @@ Validator
 The primary motivation for this module is to validate input arguments provided to publicly exposed methods. Other utilities exist but are either limited, more verbose (use method chaining), used as if asynchronous (callbacks), or part of some larger utility library (e.g., [underscore](http://lodash.com/)).  
 
 
+## Table of Contents
+
+1. 	[Installation](#installation)
+1. 	[Usage](#usage)
+1. 	[Rules](#rules)
+	*	[object](#object)
+	* 	[array](#array)
+	* 	[function](#function)
+	*	[string](#string)
+	* 	[lowercase](#lowercase)
+	* 	[uppercase](#uppercase)
+	* 	[boolean](#boolean)
+	*	[regexp](#regexp)
+	* 	[strict_date](#strict_date)
+	*	[undefined](#undefined)
+	*	[null](#null)
+	*	[number](#number)
+	*	[integer](#integer)
+	*	[float](#float)
+	*	[nan](#nan)
+	*	[empty](#empty)
+	*	[equals](#equals)
+	*	[greater_than](#greater_than)
+	*	[less_than](#less_than)
+	*	[interval](#interval)
+	*	[length](#length)
+	*	[properties](#properties)
+	*	[strict_properties](#strict_properties)
+	*	[matches](#matches)
+1. 	[Examples](#examples)
+1. 	[Notes](#notes)
+1. 	[Tests](#tests)
+	*	[Unit](#unit)
+	*	[Coverage](#test-coverage)
+1. 	[License](#license)
+
+
+
 ## Installation
 
 ``` bash
@@ -32,6 +70,9 @@ var rules = 'object|has_properties[beep,boop]';
 ```
 
 In the example, `object` and `has_properties` are the rules. Some rules require additional parameters. These parameters are specified as a comma-delimited string within brackets. Hence, `[beep,boop]` specifies required properties.
+
+
+### Rules 
 
 The following validation rules are supported...
 

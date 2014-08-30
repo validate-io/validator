@@ -144,6 +144,8 @@ validate( 'lowercase', 'Beep' );
 // Returns false
 ```
 
+Note: validates that a `value` is a `string`.
+
 
 #### uppercase
 
@@ -156,6 +158,8 @@ validate( 'uppercase', 'BEEP' );
 validate( 'uppercase', 'Beep' );
 // Returns false
 ```
+
+Note: validates that a `value` is a `string`. 
 
 
 #### boolean
@@ -245,6 +249,9 @@ validate( 'integer', 5.256 );
 // Returns false
 ```
 
+Note: validates that a `value` is a `number`.
+
+
 #### float
 
 Validates if a `value` is a `float`.
@@ -256,6 +263,8 @@ validate( 'float', 5.256 );
 validate( 'float', 5 );
 // Returns false
 ```
+
+Note: validates that a `value` is a `number`.
 
 Note: in JavaScript, every numeric value is stored as a `float`. Here, we make a distinction based on whether the value has digits located after a decimal point. Hence, the distinction is semantic and not indicative of the underlying representation. 
 
@@ -308,6 +317,10 @@ validate( 'equals[5]', 5.256 );
 // Returns false
 ```
 
+Note: validates that a `value` is a `number`.
+
+Note: the method's utility is questionable. If you require a specific value, probably better to just set the value and not a method using input validation.
+
 
 #### greater_than
 
@@ -321,6 +334,9 @@ validate( 'greater_than[5]', 5 );
 // Returns false
 ```
 
+Note: validates that a `value` is a `number`.
+
+
 #### less_than
 
 Validates if a `value` is less than a `comparator` value.
@@ -333,6 +349,9 @@ validate( 'less_than[5]', 6 );
 // Returns false
 ```
 
+Note: validates that a `value` is a `number`.
+
+
 #### interval
 
 Validates if a `value` resides between a specified `interval` (inclusive).
@@ -344,6 +363,9 @@ validate( 'interval[5,7]', 6 );
 validate( 'interval[5,7]', 4 );
 // Returns false
 ```
+
+Note: validates that a `value` is a `number`.
+
 
 #### length
 
@@ -387,6 +409,9 @@ validate( 'properties[beep,boop,yo]', {
 // Returns false
 ```
 
+Note: validates that a `value` is an `object`.
+
+
 #### strict_properties
 
 Validates if a `value` __only__ has a specified set of `properties`. This method applies only to `object` value types and does __not__ extend up the prototype chain.
@@ -405,6 +430,9 @@ validate( 'stict_properties[beep,boop]', {
 });
 // Returns false
 ```
+
+Note: validates that a `value` is an `object`.
+
 
 #### matches
 
@@ -446,9 +474,9 @@ Beep.prototype.boop = function( value ) {
 };
 
 Beep.prototype.bap = function( value ) {
-	var rules = 'number|greater_than[10]';
+	var rules = 'integer|greater_than[10]';
 	if ( validate( rules, value ) ) {
-		throw new TypeError( 'bap()::invalid input argument. Must be a number greater than 10.' );
+		throw new TypeError( 'bap()::invalid input argument. Must be an integer greater than 10.' );
 	}
 	this._bap = value;
 	return this;

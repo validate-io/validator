@@ -21,9 +21,9 @@ Beep.prototype.boop = function( value ) {
 };
 
 Beep.prototype.bap = function( value ) {
-	var rules = 'number|greater_than[10]';
+	var rules = 'integer|greater_than[10]';
 	if ( validate( rules, value ) ) {
-		throw new TypeError( 'bap()::invalid input argument. Must be a number greater than 10.' );
+		throw new TypeError( 'bap()::invalid input argument. Must be an integer greater than 10.' );
 	}
 	this._bap = value;
 	return this;

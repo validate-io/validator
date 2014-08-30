@@ -210,6 +210,32 @@ describe( 'input-validation', function tests() {
 
 	}); // end TESTS regexp
 
+	describe( 'strict_date', function tests() {
+
+		it( 'should positively validate', function test() {
+			assert.ok( !validate( 'strict_date', new Date() ) );
+		});
+
+		it( 'should negatively validate', function test() {
+			var values = [
+					5,
+					[],
+					'5',
+					function(){},
+					null,
+					NaN,
+					{},
+					undefined,
+					Date.now()
+				];
+
+			for ( var i = 0; i < values.length; i++ ) {
+				assert.ok( validate( 'strict_date', values[i] ) );
+			}
+		});
+
+	}); // end TESTS regexp
+
 	describe( 'undefined', function tests() {
 
 		it( 'should positively validate', function test() {

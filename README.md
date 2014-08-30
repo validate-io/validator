@@ -115,6 +115,18 @@ validate( 'regexp', '/.+/' );
 // Returns false
 ```
 
+#### strict_date
+
+Validates if a `value` is a Date object.
+
+``` javascript
+validate( 'strict_date', new Date() );
+// Returns true
+
+validate( 'strict_date', Date.now() );
+// Returns false
+```
+
 #### undefined
 
 Validates if a `value` is `undefined`.

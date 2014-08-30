@@ -91,6 +91,32 @@ validate( 'string', 5 );
 // Returns false
 ```
 
+#### lowercase
+
+Validates if a `value` is a lowercase `string`.
+
+``` javascript
+validate( 'lowercase', 'beep' );
+// Returns true
+
+validate( 'lowercase', 'Beep' );
+// Returns false
+```
+
+
+#### uppercase
+
+Validates if a `value` is an uppercase `string`.
+
+``` javascript
+validate( 'uppercase', 'BEEP' );
+// Returns true
+
+validate( 'uppercase', 'Beep' );
+// Returns false
+```
+
+
 #### boolean
 
 Validates if a `value` is a `boolean`.
@@ -163,7 +189,7 @@ validate( 'number', NaN );
 // Returns false
 ``` 
 
-Note: `NaN` is __not__ validated as a `number`.
+Note: `NaN` is __not__ validated as a `number`. Both positive and negative `infinity` __are__ validated as `numbers`.
 
 
 #### integer

@@ -319,7 +319,7 @@ validate( 'equals[5]', 5.256 );
 
 Note: validates that a `value` is a `number`.
 
-Note: the method's utility is questionable. If you require a specific value, probably better to just set the value and not a method using input validation.
+Note: the method's utility is questionable. If you require a specific value, probably better to just set the value and not expose a method using input validation.
 
 
 #### greater_than

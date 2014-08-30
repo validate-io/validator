@@ -8,7 +8,7 @@ TODO
 5. 	method(s) (prototype)
 6. 	buffer
 7. 	alphanumeric
-8. 	only properties (strict; no additional properties)
+8. 	
 9. 	includes (contains; thinking for arrays)
 10. hexcolor,rgb,rgba
 11. search (use regexp to test; escape special characters)

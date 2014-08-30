@@ -117,7 +117,7 @@ validate( 'regexp', '/.+/' );
 
 #### strict_date
 
-Validates if a `value` is a Date object.
+Validates if a `value` is a `Date` object.
 
 ``` javascript
 validate( 'strict_date', new Date() );
@@ -300,19 +300,38 @@ validate( 'length[2]', 'beep' );
 ```
 
 
-#### has_properties
+#### properties
 
 Validates if a `value` has a specified set of `properties`. This method applies only to `object` value types and does __not__ extend up the prototype chain.
 
 ``` javascript
-validate( 'has_properties[beep,boop]', {
+validate( 'properties[beep,boop]', {
 	'beep': 'foo',
 	'boop': 'bar',
 	'baz': 'bop'
 });
 // Returns true
 
-validate( 'has_properties[beep,boop,yo]', {
+validate( 'properties[beep,boop,yo]', {
+	'beep': 'foo',
+	'boop': 'bar',
+	'baz': 'bop'
+});
+// Returns false
+```
+
+#### strict_properties
+
+Validates if a `value` __only__ has a specified set of `properties`. This method applies only to `object` value types and does __not__ extend up the prototype chain.
+
+``` javascript
+validate( 'strict_properties[beep,boop]', {
+	'beep': 'foo',
+	'boop': 'bar'
+});
+// Returns true
+
+validate( 'stict_properties[beep,boop]', {
 	'beep': 'foo',
 	'boop': 'bar',
 	'baz': 'bop'

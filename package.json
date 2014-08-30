@@ -1,7 +1,7 @@
 {
-  "name": "input-validation",
+  "name": "validate.io",
   "version": "0.0.0",
-  "description": "Utility for validating input arguments.",
+  "description": "Validation utilities.",
   "author": {
     "name": "Athan Reines",
     "email": "kgryte@gmail.com"
@@ -20,7 +20,7 @@
   "main": "./lib",
   "repository": {
     "type": "git",
-    "url": "git://github.com/figure-io/validator.git"
+    "url": "git://github.com/validate-io/validator.git"
   },
   "keywords": [
     "api",
@@ -29,7 +29,7 @@
     "valid"
   ],
   "bugs": {
-    "url": "https://github.com/figure-io/validator/issues"
+    "url": "https://github.com/validate-io/validator/issues"
   },
   "dependencies": {},
   "devDependencies": {

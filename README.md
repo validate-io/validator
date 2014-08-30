@@ -2,7 +2,7 @@ Validator
 =========
 [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Coverage][coveralls-image]][coveralls-url] [![Dependencies][dependencies-image]][dependencies-url]
 
-> Utility for validating input arguments.
+> Validation utilities.
 
 The primary motivation for this module is to validate input arguments provided to publicly exposed methods. Other utilities exist but are either limited, more verbose (use method chaining), used as if asynchronous (callbacks), or part of some larger utility library (e.g., [underscore](http://lodash.com/)).  
 
@@ -560,20 +560,20 @@ Copyright &copy; 2014. Athan Reines.
 
 
 
-[npm-image]: http://img.shields.io/npm/v/input-validation.svg
-[npm-url]: https://npmjs.org/package/input-validation
+[npm-image]: http://img.shields.io/npm/v/validate.io.svg
+[npm-url]: https://npmjs.org/package/validate.io
 
-[travis-image]: http://img.shields.io/travis/figure-io/validator/master.svg
-[travis-url]: https://travis-ci.org/figure-io/validator
+[travis-image]: http://img.shields.io/travis/validate-io/validator/master.svg
+[travis-url]: https://travis-ci.org/validate-io/validator
 
-[coveralls-image]: https://img.shields.io/coveralls/figure-io/validator/master.svg
-[coveralls-url]: https://coveralls.io/r/figure-io/validator?branch=master
+[coveralls-image]: https://img.shields.io/coveralls/validate-io/validator/master.svg
+[coveralls-url]: https://coveralls.io/r/validate-io/validator?branch=master
 
-[dependencies-image]: http://img.shields.io/david/figure-io/validator.svg
-[dependencies-url]: https://david-dm.org/figure-io/validator
+[dependencies-image]: http://img.shields.io/david/validate-io/validator.svg
+[dependencies-url]: https://david-dm.org/validate-io/validator
 
-[dev-dependencies-image]: http://img.shields.io/david/dev/figure-io/validator.svg
-[dev-dependencies-url]: https://david-dm.org/dev/figure-io/validator
+[dev-dependencies-image]: http://img.shields.io/david/dev/validate-io/validator.svg
+[dev-dependencies-url]: https://david-dm.org/dev/validate-io/validator
 
-[github-issues-image]: http://img.shields.io/github/issues/figure-io/validator.svg
-[github-issues-url]: https://github.com/figure-io/validator/issues
+[github-issues-image]: http://img.shields.io/github/issues/validate-io/validator.svg
+[github-issues-url]: https://github.com/validate-io/validator/issues

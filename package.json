@@ -31,7 +31,10 @@
   "bugs": {
     "url": "https://github.com/validate-io/validator/issues"
   },
-  "dependencies": {},
+  "dependencies": {
+    "validate.io-array": "0.0.0",
+    "validate.io-object": "0.0.0"
+  },
   "devDependencies": {
     "chai": "1.x.x",
     "coveralls": "^2.11.1",

@@ -630,7 +630,7 @@ describe( 'input-validation', function tests() {
 			assert.ok( !err );
 		});
 
-		it( 'should negatively validate', function test() {
+		it( 'should negatively validate for a range', function test() {
 			var values = [
 					5,
 					true,

@@ -34,9 +34,12 @@
   "dependencies": {
     "validate.io-array": "0.0.0",
     "validate.io-boolean": "0.0.0",
+    "validate.io-empty": "0.0.0",
     "validate.io-float": "0.0.0",
     "validate.io-function": "0.0.0",
+    "validate.io-greater-than": "0.0.0",
     "validate.io-integer": "0.0.0",
+    "validate.io-less-than": "0.0.0",
     "validate.io-lowercase": "0.0.0",
     "validate.io-nan": "0.0.0",
     "validate.io-null": "0.0.0",

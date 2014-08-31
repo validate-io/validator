@@ -28,7 +28,6 @@ The primary motivation for this module is to validate input arguments provided t
 	*	[float](#float)
 	*	[nan](#nan)
 	*	[empty](#empty)
-	*	[equals](#equals)
 	*	[greater_than](#greater_than)
 	*	[less_than](#less_than)
 	*	[interval](#interval)
@@ -304,23 +303,6 @@ validate( 'empty', [1] );
 validate( 'empty', {'beep':'boop'} );
 // Returns false
 ```
-
-#### equals
-
-Validates if a `value` is equal to a `comparator` value.
-
-``` javascript
-validate( 'equals[5]', 5 );
-// Returns true
-
-validate( 'equals[5]', 5.256 );
-// Returns false
-```
-
-Note: validates that a `value` is a `number`.
-
-Note: the method's utility is questionable. If you require a specific value, probably better to just set the value and not expose a method using input validation.
-
 
 #### greater_than
 

@@ -33,6 +33,7 @@ describe( 'input-validation', function tests() {
 					function(){},
 					null,
 					{},
+					NaN,
 					undefined
 				];
 

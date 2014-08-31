@@ -33,8 +33,20 @@
   },
   "dependencies": {
     "validate.io-array": "0.0.0",
+    "validate.io-boolean": "0.0.0",
+    "validate.io-float": "0.0.0",
     "validate.io-function": "0.0.0",
-    "validate.io-object": "0.0.0"
+    "validate.io-integer": "0.0.0",
+    "validate.io-lowercase": "0.0.0",
+    "validate.io-nan": "0.0.0",
+    "validate.io-null": "0.0.0",
+    "validate.io-number": "0.0.0",
+    "validate.io-object": "0.0.0",
+    "validate.io-regexp": "0.0.0",
+    "validate.io-strict-date": "0.0.0",
+    "validate.io-string": "0.0.0",
+    "validate.io-undefined": "0.0.0",
+    "validate.io-uppercase": "0.0.0"
   },
   "devDependencies": {
     "chai": "1.x.x",

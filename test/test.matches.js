@@ -1,0 +1,54 @@
+
+// MODULES //
+
+var // Expectation library:
+	chai = require( 'chai' ),
+
+	// Module to be tested:
+	validate = require( './../lib' );
+
+
+// VARIABLES //
+
+var expect = chai.expect,
+	assert = chai.assert;
+
+
+// TESTS //
+
+describe( 'input-validation', function tests() {
+	'use strict';
+
+	describe( 'matches', function tests() {
+
+		it( 'should positively validate', function test() {
+			var err;
+			
+			err = validate( 'matches[beep,boop]', 'beep' );
+			assert.ok( !err );
+
+			err = validate( 'matches[5,7,9]', 5 );
+			assert.ok( !err );
+		});
+
+		it( 'should negatively validate', function test() {
+			var values = [
+					5,
+					true,
+					[],
+					'5',
+					function(){},
+					null,
+					NaN,
+					{'beep':'bar'},
+					undefined
+				];
+
+			for ( var i = 0; i < values.length; i++ ) {
+				assert.ok( validate( 'matches[beep,boop]', values[i] ) );
+			}
+		});
+
+	}); // end TESTS matches
+
+});

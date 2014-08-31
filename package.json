@@ -33,6 +33,7 @@
   },
   "dependencies": {
     "validate.io-array": "0.0.0",
+    "validate.io-function": "0.0.0",
     "validate.io-object": "0.0.0"
   },
   "devDependencies": {

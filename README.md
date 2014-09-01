@@ -13,6 +13,8 @@ The primary motivation for this module is to validate input arguments provided t
 1. 	[Usage](#usage)
 1. 	[Rules](#rules)
 	*	[object](#object)
+	*	[properties](#properties)
+	*	[strict_properties](#strict_properties)
 	* 	[array](#array)
 	* 	[function](#function)
 	*	[string](#string)
@@ -30,13 +32,11 @@ The primary motivation for this module is to validate input arguments provided t
 	*	[integer](#integer)
 	*	[float](#float)
 	*	[nan](#nan)
-	*	[empty](#empty)
 	*	[greater_than](#greater_than)
 	*	[less_than](#less_than)
 	*	[interval](#interval)
+	*	[empty](#empty)
 	*	[length](#length)
-	*	[properties](#properties)
-	*	[strict_properties](#strict_properties)
 	*	[matches](#matches)
 	* 	[ip_address](#ip_address)
 1. 	[Examples](#examples)
@@ -124,7 +124,53 @@ validate( 'object', null );
 // Returns false
 ```
 
-#### array
+
+#### [properties](https://github.com/validate-io/properties)
+
+Validates if a `value` has a specified set of `properties`. This method applies only to `object` value types and does __not__ extend up the prototype chain.
+
+``` javascript
+validate( 'properties[beep,boop]', {
+	'beep': 'foo',
+	'boop': 'bar',
+	'baz': 'bop'
+});
+// Returns true
+
+validate( 'properties[beep,boop,yo]', {
+	'beep': 'foo',
+	'boop': 'bar',
+	'baz': 'bop'
+});
+// Returns false
+```
+
+Note: validates that a `value` is an `object`.
+
+
+#### [strict_properties](https://github.com/validate-io/strict-properties)
+
+Validates if a `value` __only__ has a specified set of `properties`. This method applies only to `object` value types and does __not__ extend up the prototype chain.
+
+``` javascript
+validate( 'strict_properties[beep,boop]', {
+	'beep': 'foo',
+	'boop': 'bar'
+});
+// Returns true
+
+validate( 'stict_properties[beep,boop]', {
+	'beep': 'foo',
+	'boop': 'bar',
+	'baz': 'bop'
+});
+// Returns false
+```
+
+Note: validates that a `value` is an `object`.
+
+
+#### [array](https://github.com/validate-io/array)
 
 Validates if a `value` is an `array`.
 
@@ -136,7 +182,7 @@ validate( 'array', {} );
 // Returns false
 ```
 
-#### function
+#### [function](https://github.com/validate-io/function)
 
 Validates if a `value` is a `function`.
 
@@ -152,7 +198,7 @@ validate( 'function', [].length );
 // Returns false
 ```
 
-#### string
+#### [string](https://github.com/validate-io/string)
 
 Validates if a `value` is a `string`.
 
@@ -164,7 +210,7 @@ validate( 'string', 5 );
 // Returns false
 ```
 
-#### lowercase
+#### [lowercase](https://github.com/validate-io/lowercase)
 
 Validates if a `value` is a lowercase `string`.
 
@@ -179,7 +225,7 @@ validate( 'lowercase', 'Beep' );
 Note: validates that a `value` is a `string`.
 
 
-#### uppercase
+#### [uppercase](https://github.com/validate-io/uppercase)
 
 Validates if a `value` is an uppercase `string`.
 
@@ -194,7 +240,7 @@ validate( 'uppercase', 'Beep' );
 Note: validates that a `value` is a `string`. 
 
 
-#### boolean
+#### [boolean](https://github.com/validate-io/boolean)
 
 Validates if a `value` is a `boolean`.
 
@@ -206,7 +252,7 @@ validate( 'boolean', 1 );
 // Returns false
 ```
 
-#### regexp
+#### [regexp](https://github.com/validate-io/regexp)
 
 Validates if a `value` is a regular expression.
 
@@ -218,7 +264,7 @@ validate( 'regexp', '/.+/' );
 // Returns false
 ```
 
-#### strict_date
+#### [strict_date](https://github.com/validate-io/strict-date)
 
 Validates if a `value` is a `Date` object.
 
@@ -230,7 +276,7 @@ validate( 'strict_date', Date.now() );
 // Returns false
 ```
 
-#### timestamp
+#### [timestamp](https://github.com/validate-io/timestamp)
 
 Validates if a `value` is a timestamp. A timestamp may be in either milliseconds (UNIX) or seconds.
 
@@ -251,7 +297,7 @@ validate( 'timestamp', new Date() );
 Note: validates that a `value` is a `number`.
 
 
-#### relative_time
+#### [relative_time](https://github.com/validate-io/relative-time)
 
 Validates if a `value` is formatted as relative time. Relative times have a time unit (`ms`, `s`, `m`, `h`, `d`, `w`, `n`, `y`) and the suffix `-ago`.
 
@@ -268,7 +314,7 @@ Note: the unit for months is `n`.
 Note: validates that a `value` is a `string`.
 
 
-#### absolute_time
+#### [absolute_time](https://github.com/validate-io/absolute-time)
 
 Validates if a `value` is an absolute time (date); e.g., `2014/07/18-9:34:42`. An absolute date is formatted according to the following rules:
 
@@ -295,7 +341,7 @@ validate( 'absolute_time', new Date().toString() );
 Note: validates that a `value` is a `string`.
 
 
-#### undefined
+#### [undefined](https://github.com/validate-io/undefined)
 
 Validates if a `value` is `undefined`.
 
@@ -307,7 +353,7 @@ validate( 'undefined', null );
 // Returns false
 ```
 
-#### null
+#### [null](https://github.com/validate-io/null)
 
 Validates if a `value` is `null`.
 
@@ -319,7 +365,7 @@ validate( 'null', false );
 // Returns false
 ```
 
-#### number
+#### [number](https://github.com/validate-io/number)
 
 Validates if a `value` is a `number`.
 
@@ -334,7 +380,7 @@ validate( 'number', NaN );
 Note: `NaN` is __not__ validated as a `number`. Both positive and negative `infinity` __are__ validated as `numbers`.
 
 
-#### integer
+#### [integer](https://github.com/validate-io/integer)
 
 Validates if a `value` is an `integer`.
 
@@ -349,7 +395,7 @@ validate( 'integer', 5.256 );
 Note: validates that a `value` is a `number`.
 
 
-#### float
+#### [float](https://github.com/validate-io/float)
 
 Validates if a `value` is a `float`.
 
@@ -365,7 +411,7 @@ Note: validates that a `value` is a `number`.
 
 Note: in JavaScript, every numeric value is stored as a `float`. Here, we make a distinction based on whether the value has digits located after a decimal point. Hence, the distinction is semantic and not indicative of the underlying representation. 
 
-#### nan
+#### [nan](https://github.com/validate-io/nan)
 
 Validates if a `value` is `NaN`.
 
@@ -378,7 +424,52 @@ validate( 'nan', 5.256 );
 ```
 
 
-#### empty
+#### [greater_than](https://github.com/validate-io/greater-than)
+
+Validates if a `value` is greater than a `comparator` value.
+
+``` javascript
+validate( 'greater_than[5]', 6 );
+// Returns true
+
+validate( 'greater_than[5]', 5 );
+// Returns false
+```
+
+Note: validates that a `value` is a `number`.
+
+
+#### [less_than](https://github.com/validate-io/less-than)
+
+Validates if a `value` is less than a `comparator` value.
+
+``` javascript
+validate( 'less_than[5]', 4 );
+// Returns true
+
+validate( 'less_than[5]', 6 );
+// Returns false
+```
+
+Note: validates that a `value` is a `number`.
+
+
+#### [interval](https://github.com/validate-io/interval)
+
+Validates if a `value` resides between a specified `interval` (inclusive).
+
+``` javascript
+validate( 'interval[5,7]', 6 );
+// Returns true
+
+validate( 'interval[5,7]', 4 );
+// Returns false
+```
+
+Note: validates that a `value` is a `number`.
+
+
+#### [empty](https://github.com/validate-io/empty)
 
 Validates if a `value` is `empty`. This method only applies to `string`, `array`, and `object` value types.
 
@@ -402,52 +493,7 @@ validate( 'empty', {'beep':'boop'} );
 // Returns false
 ```
 
-#### greater_than
-
-Validates if a `value` is greater than a `comparator` value.
-
-``` javascript
-validate( 'greater_than[5]', 6 );
-// Returns true
-
-validate( 'greater_than[5]', 5 );
-// Returns false
-```
-
-Note: validates that a `value` is a `number`.
-
-
-#### less_than
-
-Validates if a `value` is less than a `comparator` value.
-
-``` javascript
-validate( 'less_than[5]', 4 );
-// Returns true
-
-validate( 'less_than[5]', 6 );
-// Returns false
-```
-
-Note: validates that a `value` is a `number`.
-
-
-#### interval
-
-Validates if a `value` resides between a specified `interval` (inclusive).
-
-``` javascript
-validate( 'interval[5,7]', 6 );
-// Returns true
-
-validate( 'interval[5,7]', 4 );
-// Returns false
-```
-
-Note: validates that a `value` is a `number`.
-
-
-#### length
+#### [length](https://github.com/validate-io/length)
 
 Validates if a `value` is either exactly a specified `length` or within an `interval` (inclusive). This method applies only to `string` and `array` value types.
 
@@ -469,52 +515,7 @@ validate( 'length[2]', 'beep' );
 ```
 
 
-#### properties
-
-Validates if a `value` has a specified set of `properties`. This method applies only to `object` value types and does __not__ extend up the prototype chain.
-
-``` javascript
-validate( 'properties[beep,boop]', {
-	'beep': 'foo',
-	'boop': 'bar',
-	'baz': 'bop'
-});
-// Returns true
-
-validate( 'properties[beep,boop,yo]', {
-	'beep': 'foo',
-	'boop': 'bar',
-	'baz': 'bop'
-});
-// Returns false
-```
-
-Note: validates that a `value` is an `object`.
-
-
-#### strict_properties
-
-Validates if a `value` __only__ has a specified set of `properties`. This method applies only to `object` value types and does __not__ extend up the prototype chain.
-
-``` javascript
-validate( 'strict_properties[beep,boop]', {
-	'beep': 'foo',
-	'boop': 'bar'
-});
-// Returns true
-
-validate( 'stict_properties[beep,boop]', {
-	'beep': 'foo',
-	'boop': 'bar',
-	'baz': 'bop'
-});
-// Returns false
-```
-
-Note: validates that a `value` is an `object`.
-
-
-#### matches
+#### [matches](https://github.com/validate-io/matches)
 
 Validates if a `value` matches a specified set of possible values. This method applies only to `string` and `number` value types.
 
@@ -530,7 +531,7 @@ validate( 'matches[beep,boop,bop]', 'bap' );
 ```
 
 
-#### ip_address
+#### [ip_address](https://github.com/validate-io/ip-address)
 
 Validates if a `value` is an IP address.
 
@@ -543,6 +544,8 @@ validate( 'ip_address', '256.248.10.46' );
 ```
 
 Note: validates that a `value` is a `string`.
+
+
 
 
 ## Examples

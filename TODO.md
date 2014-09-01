@@ -8,10 +8,13 @@ TODO
 5. 	method(s) (prototype)
 6. 	buffer (tricky, as browsers have ArrayBuffer; may want to consider typed array validation)
 7. 	alphanumeric
-8. 	
+8. 	is capitalized
 9. 	includes (contains; thinking for arrays)
 10. hexcolor,rgb,rgba
 11. search (use regexp to test; escape special characters)
+12. is camelcase
+13. is pascalcase
+
 
 
 ## Tests

@@ -32,6 +32,7 @@
     "url": "https://github.com/validate-io/validator/issues"
   },
   "dependencies": {
+    "validate.io-absolute-time": "0.0.0",
     "validate.io-array": "0.0.0",
     "validate.io-boolean": "0.0.0",
     "validate.io-empty": "0.0.0",
@@ -53,6 +54,7 @@
     "validate.io-strict-date": "0.0.0",
     "validate.io-strict-properties": "0.0.0",
     "validate.io-string": "0.0.0",
+    "validate.io-timestamp": "0.0.0",
     "validate.io-undefined": "0.0.0",
     "validate.io-uppercase": "0.0.0"
   },

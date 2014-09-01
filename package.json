@@ -47,6 +47,7 @@
     "validate.io-null": "0.0.0",
     "validate.io-number": "0.0.0",
     "validate.io-object": "0.0.0",
+    "validate.io-properties": "0.0.0",
     "validate.io-regexp": "0.0.0",
     "validate.io-strict-date": "0.0.0",
     "validate.io-string": "0.0.0",

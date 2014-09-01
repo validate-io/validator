@@ -26,7 +26,8 @@
     "api",
     "validator",
     "validation",
-    "valid"
+    "valid",
+    "validate.io"
   ],
   "bugs": {
     "url": "https://github.com/validate-io/validator/issues"

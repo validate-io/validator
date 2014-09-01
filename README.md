@@ -109,7 +109,7 @@ if ( !validate( rules, obj ) ) {
 The following validation rules are supported...
 
 
-#### object
+#### [object](https://github.com/validate-io/object)
 
 Validates if a `value` is a plain `object`; e.g., `{}`.
 

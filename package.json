@@ -43,6 +43,7 @@
     "validate.io-length": "0.0.0",
     "validate.io-less-than": "0.0.0",
     "validate.io-lowercase": "0.0.0",
+    "validate.io-matches": "0.0.0",
     "validate.io-nan": "0.0.0",
     "validate.io-null": "0.0.0",
     "validate.io-number": "0.0.0",

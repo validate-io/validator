@@ -51,7 +51,7 @@ The primary motivation for this module is to validate input arguments provided t
 ## Installation
 
 ``` bash
-$ npm install input-validation
+$ npm install validate.io
 ```
 
 ## Usage
@@ -59,7 +59,7 @@ $ npm install input-validation
 To use the module,
 
 ``` javascript
-var validate = require( 'input-validation' );
+var validate = require( 'validate.io' );
 ```
 
 ### validate( rules, value )

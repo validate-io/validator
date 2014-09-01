@@ -50,6 +50,7 @@
     "validate.io-properties": "0.0.0",
     "validate.io-regexp": "0.0.0",
     "validate.io-strict-date": "0.0.0",
+    "validate.io-strict-properties": "0.0.0",
     "validate.io-string": "0.0.0",
     "validate.io-undefined": "0.0.0",
     "validate.io-uppercase": "0.0.0"

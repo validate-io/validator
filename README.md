@@ -550,7 +550,7 @@ Note: validates that a `value` is a `string`.
 An example class publicly exposing setters.
 
 ``` javascript
-var validate = require( 'input-validation' );
+var validate = require( 'validate.io' );
 
 function Beep() {
 	this._boop = '';

@@ -21,6 +21,9 @@ The primary motivation for this module is to validate input arguments provided t
 	* 	[boolean](#boolean)
 	*	[regexp](#regexp)
 	* 	[strict_date](#strict_date)
+	* 	[timestamp](#timestamp)
+	*	[relative_time](#relative_time)
+	*	[absolute_time](#absolute_time)
 	*	[undefined](#undefined)
 	*	[null](#null)
 	*	[number](#number)
@@ -35,6 +38,7 @@ The primary motivation for this module is to validate input arguments provided t
 	*	[properties](#properties)
 	*	[strict_properties](#strict_properties)
 	*	[matches](#matches)
+	* 	[ip_address](#ip_address)
 1. 	[Examples](#examples)
 1. 	[Notes](#notes)
 1. 	[Tests](#tests)
@@ -196,6 +200,71 @@ validate( 'strict_date', new Date() );
 validate( 'strict_date', Date.now() );
 // Returns false
 ```
+
+#### timestamp
+
+Validates if a `value` is a timestamp. A timestamp may be in either milliseconds (UNIX) or seconds.
+
+``` javascript
+var timestamp = Date.now();
+
+validate( 'timestamp', timestamp );
+// Returns true
+
+timestamp = Math.round( timestamp/1000 );
+validate( 'timestamp', timestamp );
+// Returns true
+
+validate( 'timestamp', new Date() );
+// Returns false
+```
+
+Note: validates that a `value` is a `number`.
+
+
+#### relative_time
+
+Validates if a `value` is formatted as relative time. Relative times have a time unit (`ms`, `s`, `m`, `h`, `d`, `w`, `n`, `y`) and the suffix `-ago`.
+
+``` javascript
+validate( 'relative_time', '72000ms-ago' );
+// Returns true
+
+validate( 'relative_time', '72s ago' );
+// Returns false
+```
+
+Note: the unit for months is `n`.
+
+Note: validates that a `value` is a `string`.
+
+
+#### absolute_time
+
+Validates if a `value` is an absolute time (date); e.g., `2014/07/18-9:34:42`. An absolute date is formatted according to the following rules:
+
+*	`year`, `month`, and `day` are separated by `/`: `year/month/day`
+* 	calendar values are separated from temporal values by either a space or `-`: `year/month/day-00:00:00` or `year/month/day 00:00:00`
+*	if specified, hour and minutes must be specified together: `00:00`
+*	seconds are optional
+
+
+``` javascript
+validate( 'absolute_time', '2014/07/14' );
+// Returns true
+
+validate( 'absolute_time', '2014/07/14 9:23' );
+// Returns true
+
+validate( 'absolute_time', '2014/07/18-9:34:42' );
+// Returns true
+
+validate( 'absolute_time', new Date().toString() );
+// Returns false
+```
+
+Note: validates that a `value` is a `string`.
+
 
 #### undefined
 
@@ -430,6 +499,21 @@ validate( 'matches[1,3,5,7,9]', 5 );
 validate( 'matches[beep,boop,bop]', 'bap' );
 // Returns false
 ```
+
+
+#### ip_address
+
+Validates if a `value` is an IP address.
+
+``` javascript
+validate( 'ip_address', '192.168.17.142' );
+// Returns true
+
+validate( 'ip_address', '256.248.10.46' );
+// Returns false
+```
+
+Note: validates that a `value` is a `string`.
 
 
 ## Examples

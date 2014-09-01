@@ -1,7 +1,7 @@
 TODO
 ====
 
-1. 	url/IP
+1. 	url
 2. 	email
 3. 	uuid
 4. 	date (loose: parseable as date); isafter, isbefore (convert to timestamp);
@@ -12,13 +12,8 @@ TODO
 9. 	includes (contains; thinking for arrays)
 10. hexcolor,rgb,rgba
 11. search (use regexp to test; escape special characters)
-12. 
-13. 
-14. 
 
 
 ## Tests
 
-1. 	timestamp
-2. 	absolute time
-3. 	relative time
+1. 	

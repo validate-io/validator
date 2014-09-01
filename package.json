@@ -1,6 +1,6 @@
 {
   "name": "validate.io",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Validation utilities.",
   "author": {
     "name": "Athan Reines",

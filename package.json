@@ -39,6 +39,8 @@
     "validate.io-function": "0.0.0",
     "validate.io-greater-than": "0.0.0",
     "validate.io-integer": "0.0.0",
+    "validate.io-interval": "0.0.0",
+    "validate.io-length": "0.0.0",
     "validate.io-less-than": "0.0.0",
     "validate.io-lowercase": "0.0.0",
     "validate.io-nan": "0.0.0",

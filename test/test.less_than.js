@@ -22,10 +22,10 @@ describe( 'input-validation', function tests() {
 	describe( 'less_than', function tests() {
 
 		it( 'should positively validate', function test() {
-			var err;
+			var ok;
 			
-			err = validate( 'less_than[2]', 1 );
-			assert.ok( !err );
+			ok = validate( 'less_than[2]', 1 );
+			assert.ok( ok );
 		});
 
 		it( 'should negatively validate', function test() {
@@ -42,7 +42,7 @@ describe( 'input-validation', function tests() {
 				];
 
 			for ( var i = 0; i < values.length; i++ ) {
-				assert.ok( validate( 'less_than[2]', values[i] ) );
+				assert.ok( !validate( 'less_than[2]', values[i] ) );
 			}
 		});
 

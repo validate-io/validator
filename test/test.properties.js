@@ -22,13 +22,13 @@ describe( 'input-validation', function tests() {
 	describe( 'properties', function tests() {
 
 		it( 'should positively validate', function test() {
-			var err;
+			var ok;
 			
-			err = validate( 'properties[beep,boop]', {'beep':5,'boop':5} );
-			assert.ok( !err );
+			ok = validate( 'properties[beep,boop]', {'beep':5,'boop':5} );
+			assert.ok( ok );
 
-			err = validate( 'properties[beep,boop]', {'beep':5,'boop':5,'bop':5} );
-			assert.ok( !err );
+			ok = validate( 'properties[beep,boop]', {'beep':5,'boop':5,'bop':5} );
+			assert.ok( ok );
 		});
 
 		it( 'should negatively validate', function test() {
@@ -45,7 +45,7 @@ describe( 'input-validation', function tests() {
 				];
 
 			for ( var i = 0; i < values.length; i++ ) {
-				assert.ok( validate( 'properties[beep,boop]', values[i] ) );
+				assert.ok( !validate( 'properties[beep,boop]', values[i] ) );
 			}
 		});
 

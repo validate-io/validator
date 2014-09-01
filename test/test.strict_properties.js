@@ -22,10 +22,10 @@ describe( 'input-validation', function tests() {
 	describe( 'strict_properties', function tests() {
 
 		it( 'should positively validate', function test() {
-			var err;
+			var ok;
 			
-			err = validate( 'strict_properties[beep,boop]', {'beep':5,'boop':5} );
-			assert.ok( !err );
+			ok = validate( 'strict_properties[beep,boop]', {'beep':5,'boop':5} );
+			assert.ok( ok );
 		});
 
 		it( 'should negatively validate', function test() {
@@ -44,7 +44,7 @@ describe( 'input-validation', function tests() {
 				];
 
 			for ( var i = 0; i < values.length; i++ ) {
-				assert.ok( validate( 'strict_properties[beep,boop]', values[i] ) );
+				assert.ok( !validate( 'strict_properties[beep,boop]', values[i] ) );
 			}
 		});
 

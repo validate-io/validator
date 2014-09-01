@@ -22,13 +22,13 @@ describe( 'input-validation', function tests() {
 	describe( 'matches', function tests() {
 
 		it( 'should positively validate', function test() {
-			var err;
+			var ok;
 			
-			err = validate( 'matches[beep,boop]', 'beep' );
-			assert.ok( !err );
+			ok = validate( 'matches[beep,boop]', 'beep' );
+			assert.ok( ok );
 
-			err = validate( 'matches[5,7,9]', 5 );
-			assert.ok( !err );
+			ok = validate( 'matches[5,7,9]', 5 );
+			assert.ok( ok );
 		});
 
 		it( 'should negatively validate', function test() {
@@ -45,7 +45,7 @@ describe( 'input-validation', function tests() {
 				];
 
 			for ( var i = 0; i < values.length; i++ ) {
-				assert.ok( validate( 'matches[beep,boop]', values[i] ) );
+				assert.ok( !validate( 'matches[beep,boop]', values[i] ) );
 			}
 		});
 

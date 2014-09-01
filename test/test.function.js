@@ -22,7 +22,7 @@ describe( 'input-validation', function tests() {
 	describe( 'function', function tests() {
 
 		it( 'should positively validate', function test() {
-			assert.ok( !validate( 'function', function(){} ) );
+			assert.ok( validate( 'function', function(){} ) );
 		});
 
 		it( 'should negatively validate', function test() {
@@ -38,7 +38,7 @@ describe( 'input-validation', function tests() {
 				];
 
 			for ( var i = 0; i < values.length; i++ ) {
-				assert.ok( validate( 'function', values[i] ) );
+				assert.ok( !validate( 'function', values[i] ) );
 			}
 		});
 

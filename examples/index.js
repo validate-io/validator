@@ -13,7 +13,7 @@ function Beep() {
 
 Beep.prototype.boop = function( value ) {
 	var rules = 'string|length[0,12]';
-	if ( validate( rules, value ) ) {
+	if ( !validate( rules, value ) ) {
 		throw new TypeError( 'boop()::invalid input argument. Must be a string less than 13 characters long.' );
 	}
 	this._boop = value;
@@ -22,7 +22,7 @@ Beep.prototype.boop = function( value ) {
 
 Beep.prototype.bap = function( value ) {
 	var rules = 'integer|greater_than[10]';
-	if ( validate( rules, value ) ) {
+	if ( !validate( rules, value ) ) {
 		throw new TypeError( 'bap()::invalid input argument. Must be an integer greater than 10.' );
 	}
 	this._bap = value;
@@ -31,7 +31,7 @@ Beep.prototype.bap = function( value ) {
 
 Beep.prototype.foo = function( value ) {
 	var rules = 'matches[beep,boop,bap,foo,bar]';
-	if ( validate( rules, value ) ) {
+	if ( !validate( rules, value ) ) {
 		throw new TypeError( 'foo()::invalid input argument. Must be one of the following: beep,boop,bap,foo,bar.' );
 	}
 	this._foo = value;

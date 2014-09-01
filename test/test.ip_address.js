@@ -22,7 +22,7 @@ describe( 'input-validation', function tests() {
 	describe( 'ip_address', function tests() {
 
 		it( 'should positively validate', function test() {
-			assert.ok( !validate( 'ip_address', '192.168.17.92' ) );
+			assert.ok( validate( 'ip_address', '192.168.17.92' ) );
 		});
 
 		it( 'should negatively validate', function test() {
@@ -43,7 +43,7 @@ describe( 'input-validation', function tests() {
 				];
 
 			for ( var i = 0; i < values.length; i++ ) {
-				assert.ok( validate( 'ip_address', values[i] ) );
+				assert.ok( !validate( 'ip_address', values[i] ) );
 			}
 		});
 

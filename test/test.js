@@ -66,10 +66,10 @@ describe( 'input-validation', function tests() {
 
 	it( 'should support multiple rules', function test() {
 		var rules = 'string|matches[beep,boop]|length[3,5]',
-			err;
+			ok;
 
-		err = validate( rules, 'beep' );
-		assert.ok( !err );
+		ok = validate( rules, 'beep' );
+		assert.ok( ok );
 	});
 
 });

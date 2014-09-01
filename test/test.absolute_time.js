@@ -22,8 +22,8 @@ describe( 'input-validation', function tests() {
 	describe( 'absolute_time', function tests() {
 
 		it( 'should positively validate', function test() {
-			assert.ok( !validate( 'absolute_time', '2014/07/18 9:42' ) );
-			assert.ok( !validate( 'absolute_time', '2014/07/18-09:34:42' ) );
+			assert.ok( validate( 'absolute_time', '2014/07/18 9:42' ) );
+			assert.ok( validate( 'absolute_time', '2014/07/18-09:34:42' ) );
 		});
 
 		it( 'should negatively validate', function test() {
@@ -43,7 +43,7 @@ describe( 'input-validation', function tests() {
 				];
 
 			for ( var i = 0; i < values.length; i++ ) {
-				assert.ok( validate( 'absolute_time', values[i] ) );
+				assert.ok( !validate( 'absolute_time', values[i] ) );
 			}
 		});
 

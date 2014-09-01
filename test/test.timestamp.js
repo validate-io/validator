@@ -23,9 +23,9 @@ describe( 'input-validation', function tests() {
 
 		it( 'should positively validate', function test() {
 			var timestamp = Date.now();
-			assert.ok( !validate( 'timestamp', timestamp ) );
+			assert.ok( validate( 'timestamp', timestamp ) );
 			timestamp = Math.round( timestamp/1000 );
-			assert.ok( !validate( 'timestamp', timestamp ) );
+			assert.ok( validate( 'timestamp', timestamp ) );
 		});
 
 		it( 'should negatively validate', function test() {
@@ -45,7 +45,7 @@ describe( 'input-validation', function tests() {
 				];
 
 			for ( var i = 0; i < values.length; i++ ) {
-				assert.ok( validate( 'timestamp', values[i] ) );
+				assert.ok( !validate( 'timestamp', values[i] ) );
 			}
 		});
 

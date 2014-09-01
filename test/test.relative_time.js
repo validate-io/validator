@@ -22,8 +22,8 @@ describe( 'input-validation', function tests() {
 	describe( 'relative_time', function tests() {
 
 		it( 'should positively validate', function test() {
-			assert.ok( !validate( 'relative_time', '72000ms-ago' ) );
-			assert.ok( !validate( 'relative_time', '2d-ago' ) );
+			assert.ok( validate( 'relative_time', '72000ms-ago' ) );
+			assert.ok( validate( 'relative_time', '2d-ago' ) );
 		});
 
 		it( 'should negatively validate', function test() {
@@ -43,7 +43,7 @@ describe( 'input-validation', function tests() {
 				];
 
 			for ( var i = 0; i < values.length; i++ ) {
-				assert.ok( validate( 'relative_time', values[i] ) );
+				assert.ok( !validate( 'relative_time', values[i] ) );
 			}
 		});
 

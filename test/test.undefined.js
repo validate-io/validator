@@ -22,7 +22,7 @@ describe( 'input-validation', function tests() {
 	describe( 'undefined', function tests() {
 
 		it( 'should positively validate', function test() {
-			assert.ok( !validate( 'undefined', undefined ) );
+			assert.ok( validate( 'undefined', undefined ) );
 		});
 
 		it( 'should negatively validate', function test() {
@@ -38,7 +38,7 @@ describe( 'input-validation', function tests() {
 				];
 
 			for ( var i = 0; i < values.length; i++ ) {
-				assert.ok( validate( 'undefined', values[i] ) );
+				assert.ok( !validate( 'undefined', values[i] ) );
 			}
 		});
 

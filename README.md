@@ -74,6 +74,35 @@ var rules = 'object|properties[beep,boop]';
 
 In the example, `object` and `properties` are the rules. Some rules require additional parameters. These parameters are specified as a comma-delimited string within brackets. Hence, `[beep,boop]` specifies required properties.
 
+If a `value` abides by all `rules`, then `validate()` returns `true`.
+
+``` javascript
+var obj = {
+	'beep': true,
+	'boop': false
+};
+
+validate( rules, obj );
+// Returns true
+```
+
+If a `value` violates a `rule`, then `validate()` immediately returns `false`.
+
+``` javascript
+rules = 'object|strict_properties[beep,baz]';
+
+validate( rules, obj );
+// Returns false
+```
+
+Hence, when type checking, test for falsey output to trigger an `error`.
+
+``` javascript
+if ( !validate( rules, obj ) ) {
+	throw new TypeError( 'Invalid input argument. Options must be an object and have only the following properties: [ beep, baz ].' );
+}
+```
+
 
 ### Rules 
 
@@ -532,7 +561,7 @@ function Beep() {
 
 Beep.prototype.boop = function( value ) {
 	var rules = 'string|length[0,12]';
-	if ( validate( rules, value ) ) {
+	if ( !validate( rules, value ) ) {
 		throw new TypeError( 'boop()::invalid input argument. Must be a string less than 13 characters long.' );
 	}
 	this._boop = value;
@@ -541,7 +570,7 @@ Beep.prototype.boop = function( value ) {
 
 Beep.prototype.bap = function( value ) {
 	var rules = 'integer|greater_than[10]';
-	if ( validate( rules, value ) ) {
+	if ( !validate( rules, value ) ) {
 		throw new TypeError( 'bap()::invalid input argument. Must be an integer greater than 10.' );
 	}
 	this._bap = value;
@@ -550,7 +579,7 @@ Beep.prototype.bap = function( value ) {
 
 Beep.prototype.foo = function( value ) {
 	var rules = 'matches[beep,boop,bap,foo,bar]';
-	if ( validate( rules, value ) ) {
+	if ( !validate( rules, value ) ) {
 		throw new TypeError( 'foo()::invalid input argument. Must be one of the following: beep,boop,bap,foo,bar.' );
 	}
 	this._foo = value;

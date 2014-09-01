@@ -22,7 +22,7 @@ describe( 'input-validation', function tests() {
 	describe( 'lowercase', function tests() {
 
 		it( 'should positively validate', function test() {
-			assert.ok( !validate( 'lowercase', 'hello' ) );
+			assert.ok( validate( 'lowercase', 'hello' ) );
 		});
 
 		it( 'should negatively validate', function test() {
@@ -39,7 +39,7 @@ describe( 'input-validation', function tests() {
 				];
 
 			for ( var i = 0; i < values.length; i++ ) {
-				assert.ok( validate( 'lowercase', values[i] ) );
+				assert.ok( !validate( 'lowercase', values[i] ) );
 			}
 		});
 

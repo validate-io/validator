@@ -22,16 +22,16 @@ describe( 'input-validation', function tests() {
 	describe( 'empty', function tests() {
 
 		it( 'should positively validate', function test() {
-			var err;
+			var ok;
 			
-			err = validate( 'empty', '' );
-			assert.ok( !err );
+			ok = validate( 'empty', '' );
+			assert.ok( ok );
 
-			err = validate( 'empty', [] );
-			assert.ok( !err );
+			ok = validate( 'empty', [] );
+			assert.ok( ok );
 
-			err = validate( 'empty', {} );
-			assert.ok( !err );
+			ok = validate( 'empty', {} );
+			assert.ok( ok );
 		});
 
 		it( 'should negatively validate', function test() {
@@ -48,7 +48,7 @@ describe( 'input-validation', function tests() {
 				];
 
 			for ( var i = 0; i < values.length; i++ ) {
-				assert.ok( validate( 'empty', values[i] ) );
+				assert.ok( !validate( 'empty', values[i] ) );
 			}
 		});
 

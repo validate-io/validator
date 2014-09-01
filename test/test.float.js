@@ -22,7 +22,7 @@ describe( 'input-validation', function tests() {
 	describe( 'float', function tests() {
 
 		it( 'should positively validate', function test() {
-			assert.ok( !validate( 'float', 5.5 ) );
+			assert.ok( validate( 'float', 5.5 ) );
 		});
 
 		it( 'should negatively validate', function test() {
@@ -39,7 +39,7 @@ describe( 'input-validation', function tests() {
 				];
 
 			for ( var i = 0; i < values.length; i++ ) {
-				assert.ok( validate( 'float', values[i] ) );
+				assert.ok( !validate( 'float', values[i] ) );
 			}
 		});
 

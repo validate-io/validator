@@ -1,7 +1,7 @@
 TODO
 ====
 
-1. 	url
+1. 	url (protocols: http/https/ws/ftp/ftps)
 2. 	email
 3. 	uuid
 4. 	date (loose: parseable as date); isafter, isbefore (convert to timestamp);

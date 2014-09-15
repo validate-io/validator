@@ -14,6 +14,11 @@ TODO
 11. search (use regexp to test; escape special characters)
 12. is camelcase
 13. is pascalcase
+14. is html tag (see sindre)
+15. is valid custom element name
+16. is svg tag
+17. ip (ipv4, ipv6; if no params, then allow both)
+18. semvar
 
 
 

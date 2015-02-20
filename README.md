@@ -22,6 +22,7 @@ The primary [motivation](https://github.com/validate-io/overview) for this modul
 	* 	[lowercase](#lowercase)
 	* 	[uppercase](#uppercase)
 	* 	[boolean](#boolean)
+	*	[boolean_array](#boolean_array)
 	*	[regexp](#regexp)
 	* 	[strict_date](#strict_date)
 	* 	[timestamp](#timestamp)
@@ -265,6 +266,22 @@ validate( 'boolean', true );
 validate( 'boolean', 1 );
 // returns false
 ```
+
+
+
+#### [boolean_array](https://github.com/validate-io/boolean-array)
+
+Validates if a `value` is a `boolean array`.
+
+``` javascript
+validate( 'boolean_array', [true,false] );
+// returns true
+
+validate( 'boolean_array', [true,1] );
+// returns false
+```
+
+
 
 #### [regexp](https://github.com/validate-io/regexp)
 

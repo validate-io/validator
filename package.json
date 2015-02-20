@@ -60,6 +60,7 @@
     "validate.io-absolute-time": "1.0.x",
     "validate.io-array": "1.0.x",
     "validate.io-boolean": "1.0.x",
+    "validate.io-boolean-array": "^1.0.0",
     "validate.io-empty": "1.0.x",
     "validate.io-float": "1.0.x",
     "validate.io-function": "1.0.x",

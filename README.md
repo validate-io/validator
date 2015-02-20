@@ -30,6 +30,7 @@ The primary [motivation](https://github.com/validate-io/overview) for this modul
 	*	[undefined](#undefined)
 	*	[null](#null)
 	*	[number](#number)
+	*	[number_array](#number_array)
 	*	[integer](#integer)
 	*	[integer_array](#integer_array)
 	*	[float](#float)
@@ -391,6 +392,20 @@ validate( 'number', NaN );
 ``` 
 
 __Note__: `NaN` is __not__ validated as a `number`. Both positive and negative `infinity` __are__ validated as `numbers`.
+
+
+
+#### [number_array](https://github.com/validate-io/number-array)
+
+Validates if a `value` is an `number array`.
+
+``` javascript
+validate( 'number_array', [3.14,2] );
+// returns true
+
+validate( 'number_array', [NaN,2] );
+// returns false
+```
 
 
 #### [integer](https://github.com/validate-io/integer)

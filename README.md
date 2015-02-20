@@ -13,6 +13,7 @@ The primary [motivation](https://github.com/validate-io/overview) for this modul
 1. 	[Usage](#usage)
 1. 	[Rules](#rules)
 	*	[object](#object)
+	*	[object_array](#object_array)
 	*	[properties](#properties)
 	*	[strict_properties](#strict_properties)
 	* 	[array](#array)
@@ -126,6 +127,20 @@ validate( 'object', [] );
 validate( 'object', null );
 // returns false
 ```
+
+
+#### [object_array](https://github.com/validate-io/object-array)
+
+Validates if a `value` is an `object array`.
+
+``` javascript
+validate( 'object_array', [{},{} );
+// returns true
+
+validate( 'object_array', [{},null] );
+// returns false
+```
+
 
 
 #### [properties](https://github.com/validate-io/properties)

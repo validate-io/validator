@@ -31,6 +31,7 @@ The primary [motivation](https://github.com/validate-io/overview) for this modul
 	*	[null](#null)
 	*	[number](#number)
 	*	[integer](#integer)
+	*	[integer_array](#integer_array)
 	*	[float](#float)
 	*	[nan](#nan)
 	*	[greater_than](#greater_than)
@@ -207,7 +208,6 @@ validate( 'string', 'beep' );
 
 validate( 'string', 5 );
 // returns false
-```
 ```
 
 #### [string_array](https://github.com/validate-io/string-array)
@@ -406,6 +406,20 @@ validate( 'integer', 5.256 );
 ```
 
 __Note__: validates that a `value` is a `number`.
+
+
+
+#### [integer_array](https://github.com/validate-io/integer-array)
+
+Validates if a `value` is an `integer array`.
+
+``` javascript
+validate( 'integer_array', [1,2] );
+// returns true
+
+validate( 'integer_array', ['1','2'] );
+// returns false
+```
 
 
 #### [float](https://github.com/validate-io/float)

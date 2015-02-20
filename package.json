@@ -46,6 +46,7 @@
     "lowercase",
     "uppercase",
     "regexp",
+    "regex",
     "date",
     "boolean",
     "interval",

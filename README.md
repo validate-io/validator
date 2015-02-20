@@ -16,6 +16,7 @@ The primary [motivation](https://github.com/validate-io/overview) for this modul
 	*	[properties](#properties)
 	*	[strict_properties](#strict_properties)
 	* 	[array](#array)
+	*	[array_array](#array_array)
 	* 	[function](#function)
 	*	[string](#string)
 	*	[string_array](#string_array)
@@ -183,6 +184,22 @@ validate( 'array', [] );
 validate( 'array', {} );
 // returns false
 ```
+
+
+
+#### [array_array](https://github.com/validate-io/array-array)
+
+Validates if a `value` is an `array` of `arrays`.
+
+``` javascript
+validate( 'array_array', [[],[]] );
+// returns true
+
+validate( 'array_array', [[],{}] );
+// returns false
+```
+
+
 
 #### [function](https://github.com/validate-io/function)
 

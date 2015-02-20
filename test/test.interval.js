@@ -1,3 +1,5 @@
+/* global require, describe, it */
+'use strict';
 
 // MODULES //
 
@@ -17,30 +19,27 @@ var expect = chai.expect,
 // TESTS //
 
 describe( 'input-validation', function tests() {
-	'use strict';
 
 	describe( 'interval', function tests() {
 
 		it( 'should positively validate', function test() {
-			var ok;
-			
-			ok = validate( 'interval[0,1]', 0.5 );
+			var ok = validate( 'interval[0,1]', 0.5 );
 			assert.ok( ok );
 		});
 
 		it( 'should negatively validate', function test() {
 			var values = [
-					-1,
-					2,
-					true,
-					[],
-					'5',
-					function(){},
-					null,
-					NaN,
-					{'foo':'bar'},
-					undefined
-				];
+				-1,
+				2,
+				true,
+				[],
+				'5',
+				function(){},
+				null,
+				NaN,
+				{'foo':'bar'},
+				undefined
+			];
 
 			for ( var i = 0; i < values.length; i++ ) {
 				assert.ok( !validate( 'interval[0,1]', values[i] ) );

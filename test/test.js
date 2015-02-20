@@ -1,3 +1,5 @@
+/* global require, describe, it */
+'use strict';
 
 // MODULES //
 
@@ -17,7 +19,6 @@ var expect = chai.expect,
 // TESTS //
 
 describe( 'input-validation', function tests() {
-	'use strict';
 
 	it( 'should export a function', function test() {
 		expect( validate ).to.be.a( 'function' );
@@ -36,20 +37,20 @@ describe( 'input-validation', function tests() {
 
 	it( 'should throw an error if validation rules are not provided as a serialized string', function test() {
 		var values = [
-				5,
-				[],
-				true,
-				{},
-				null,
-				NaN,
-				function(){},
-				undefined
-			];
+			5,
+			[],
+			true,
+			{},
+			null,
+			NaN,
+			function(){},
+			undefined
+		];
 
 		for ( var i = 0; i < values.length; i++ ) {
 			expect( badValue( values[i] ) ).to.throw( Error );
 		}
-		
+
 		function badValue( value ) {
 			return function() {
 				validate( value, 0 );

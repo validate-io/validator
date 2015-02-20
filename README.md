@@ -56,8 +56,6 @@ $ npm install validate.io
 
 ## Usage
 
-To use the module,
-
 ``` javascript
 var validate = require( 'validate.io' );
 ```
@@ -83,7 +81,7 @@ var obj = {
 };
 
 validate( rules, obj );
-// Returns true
+// returns true
 ```
 
 If a `value` violates a `rule`, then `validate()` immediately returns `false`.
@@ -92,7 +90,7 @@ If a `value` violates a `rule`, then `validate()` immediately returns `false`.
 rules = 'object|strict_properties[beep,baz]';
 
 validate( rules, obj );
-// Returns false
+// returns false
 ```
 
 Hence, when type checking, test for falsey output to trigger an `error`.
@@ -111,17 +109,17 @@ The following validation rules are supported...
 
 #### [object](https://github.com/validate-io/object)
 
-Validates if a `value` is a plain `object`; e.g., `{}`.
+Validates if a `value` is an `object`; e.g., `{}`.
 
 ``` javascript
 validate( 'object', {} );
-// Returns true
+// returns true
 
 validate( 'object', [] );
-// Returns false
+// returns false
 
 validate( 'object', null );
-// Returns false
+// returns false
 ```
 
 
@@ -135,17 +133,17 @@ validate( 'properties[beep,boop]', {
 	'boop': 'bar',
 	'baz': 'bop'
 });
-// Returns true
+// returns true
 
 validate( 'properties[beep,boop,yo]', {
 	'beep': 'foo',
 	'boop': 'bar',
 	'baz': 'bop'
 });
-// Returns false
+// returns false
 ```
 
-Note: validates that a `value` is an `object`.
+__Note__: validates that a `value` is an `object`.
 
 
 #### [strict_properties](https://github.com/validate-io/strict-properties)
@@ -157,17 +155,17 @@ validate( 'strict_properties[beep,boop]', {
 	'beep': 'foo',
 	'boop': 'bar'
 });
-// Returns true
+// returns true
 
 validate( 'stict_properties[beep,boop]', {
 	'beep': 'foo',
 	'boop': 'bar',
 	'baz': 'bop'
 });
-// Returns false
+// returns false
 ```
 
-Note: validates that a `value` is an `object`.
+__Note__: validates that a `value` is an `object`.
 
 
 #### [array](https://github.com/validate-io/array)
@@ -176,10 +174,10 @@ Validates if a `value` is an `array`.
 
 ``` javascript
 validate( 'array', [] );
-// Returns true
+// returns true
 
 validate( 'array', {} );
-// Returns false
+// returns false
 ```
 
 #### [function](https://github.com/validate-io/function)
@@ -192,10 +190,10 @@ function foo(){
 }
 
 validate( 'function', foo );
-// Returns true
+// returns true
 
 validate( 'function', [].length );
-// Returns false
+// returns false
 ```
 
 #### [string](https://github.com/validate-io/string)
@@ -204,10 +202,10 @@ Validates if a `value` is a `string`.
 
 ``` javascript
 validate( 'string', 'beep' );
-// Returns true
+// returns true
 
 validate( 'string', 5 );
-// Returns false
+// returns false
 ```
 
 #### [lowercase](https://github.com/validate-io/lowercase)
@@ -216,13 +214,13 @@ Validates if a `value` is a lowercase `string`.
 
 ``` javascript
 validate( 'lowercase', 'beep' );
-// Returns true
+// returns true
 
 validate( 'lowercase', 'Beep' );
-// Returns false
+// returns false
 ```
 
-Note: validates that a `value` is a `string`.
+__Note__: validates that a `value` is a `string`.
 
 
 #### [uppercase](https://github.com/validate-io/uppercase)
@@ -231,13 +229,13 @@ Validates if a `value` is an uppercase `string`.
 
 ``` javascript
 validate( 'uppercase', 'BEEP' );
-// Returns true
+// returns true
 
 validate( 'uppercase', 'Beep' );
-// Returns false
+// returns false
 ```
 
-Note: validates that a `value` is a `string`. 
+__Note__: validates that a `value` is a `string`. 
 
 
 #### [boolean](https://github.com/validate-io/boolean)
@@ -246,10 +244,10 @@ Validates if a `value` is a `boolean`.
 
 ``` javascript
 validate( 'boolean', true );
-// Returns true
+// returns true
 
 validate( 'boolean', 1 );
-// Returns false
+// returns false
 ```
 
 #### [regexp](https://github.com/validate-io/regexp)
@@ -258,10 +256,10 @@ Validates if a `value` is a regular expression.
 
 ``` javascript
 validate( 'regexp', /.+/ );
-// Returns true
+// returns true
 
 validate( 'regexp', '/.+/' );
-// Returns false
+// returns false
 ```
 
 #### [strict_date](https://github.com/validate-io/strict-date)
@@ -270,10 +268,10 @@ Validates if a `value` is a `Date` object.
 
 ``` javascript
 validate( 'strict_date', new Date() );
-// Returns true
+// returns true
 
 validate( 'strict_date', Date.now() );
-// Returns false
+// returns false
 ```
 
 #### [timestamp](https://github.com/validate-io/timestamp)
@@ -284,17 +282,17 @@ Validates if a `value` is a timestamp. A timestamp may be in either milliseconds
 var timestamp = Date.now();
 
 validate( 'timestamp', timestamp );
-// Returns true
+// returns true
 
 timestamp = Math.round( timestamp/1000 );
 validate( 'timestamp', timestamp );
-// Returns true
+// returns true
 
 validate( 'timestamp', new Date() );
-// Returns false
+// returns false
 ```
 
-Note: validates that a `value` is a `number`.
+__Note__: validates that a `value` is a `number`.
 
 
 #### [relative_time](https://github.com/validate-io/relative-time)
@@ -303,15 +301,15 @@ Validates if a `value` is formatted as relative time. Relative times have a time
 
 ``` javascript
 validate( 'relative_time', '72000ms-ago' );
-// Returns true
+// returns true
 
 validate( 'relative_time', '72s ago' );
-// Returns false
+// returns false
 ```
 
 Note: the unit for months is `n`.
 
-Note: validates that a `value` is a `string`.
+__Note__: validates that a `value` is a `string`.
 
 
 #### [absolute_time](https://github.com/validate-io/absolute-time)
@@ -326,19 +324,19 @@ Validates if a `value` is an absolute time (date); e.g., `2014/07/18-9:34:42`. A
 
 ``` javascript
 validate( 'absolute_time', '2014/07/14' );
-// Returns true
+// returns true
 
 validate( 'absolute_time', '2014/07/14 9:23' );
-// Returns true
+// returns true
 
 validate( 'absolute_time', '2014/07/18-9:34:42' );
-// Returns true
+// returns true
 
 validate( 'absolute_time', new Date().toString() );
-// Returns false
+// returns false
 ```
 
-Note: validates that a `value` is a `string`.
+__Note__: validates that a `value` is a `string`.
 
 
 #### [undefined](https://github.com/validate-io/undefined)
@@ -347,10 +345,10 @@ Validates if a `value` is `undefined`.
 
 ``` javascript
 validate( 'undefined', undefined );
-// Returns true
+// returns true
 
 validate( 'undefined', null );
-// Returns false
+// returns false
 ```
 
 #### [null](https://github.com/validate-io/null)
@@ -359,10 +357,10 @@ Validates if a `value` is `null`.
 
 ``` javascript
 validate( 'null', null );
-// Returns true
+// returns true
 
 validate( 'null', false );
-// Returns false
+// returns false
 ```
 
 #### [number](https://github.com/validate-io/number)
@@ -371,13 +369,13 @@ Validates if a `value` is a `number`.
 
 ``` javascript
 validate( 'number', 5.256 );
-// Returns true
+// returns true
 
 validate( 'number', NaN );
-// Returns false
+// returns false
 ``` 
 
-Note: `NaN` is __not__ validated as a `number`. Both positive and negative `infinity` __are__ validated as `numbers`.
+__Note__: `NaN` is __not__ validated as a `number`. Both positive and negative `infinity` __are__ validated as `numbers`.
 
 
 #### [integer](https://github.com/validate-io/integer)
@@ -386,13 +384,13 @@ Validates if a `value` is an `integer`.
 
 ``` javascript
 validate( 'integer', 5 );
-// Returns true
+// returns true
 
 validate( 'integer', 5.256 );
-// Returns false
+// returns false
 ```
 
-Note: validates that a `value` is a `number`.
+__Note__: validates that a `value` is a `number`.
 
 
 #### [float](https://github.com/validate-io/float)
@@ -401,13 +399,13 @@ Validates if a `value` is a `float`.
 
 ``` javascript
 validate( 'float', 5.256 );
-// Returns true
+// returns true
 
 validate( 'float', 5 );
-// Returns false
+// returns false
 ```
 
-Note: validates that a `value` is a `number`.
+__Note__: validates that a `value` is a `number`.
 
 Note: in JavaScript, every numeric value is stored as a `float`. Here, we make a distinction based on whether the value has digits located after a decimal point. Hence, the distinction is semantic and not indicative of the underlying representation. 
 
@@ -417,10 +415,10 @@ Validates if a `value` is `NaN`.
 
 ``` javascript
 validate( 'nan', NaN );
-// Returns true
+// returns true
 
 validate( 'nan', 5.256 );
-// Returns false
+// returns false
 ```
 
 
@@ -430,13 +428,13 @@ Validates if a `value` is greater than a `comparator` value.
 
 ``` javascript
 validate( 'greater_than[5]', 6 );
-// Returns true
+// returns true
 
 validate( 'greater_than[5]', 5 );
-// Returns false
+// returns false
 ```
 
-Note: validates that a `value` is a `number`.
+__Note__: validates that both input arguments are of type `number`.
 
 
 #### [less_than](https://github.com/validate-io/less-than)
@@ -445,13 +443,13 @@ Validates if a `value` is less than a `comparator` value.
 
 ``` javascript
 validate( 'less_than[5]', 4 );
-// Returns true
+// returns true
 
 validate( 'less_than[5]', 6 );
-// Returns false
+// returns false
 ```
 
-Note: validates that a `value` is a `number`.
+__Note__: validates that both input arguments are of type `number`.
 
 
 #### [interval](https://github.com/validate-io/interval)
@@ -460,13 +458,13 @@ Validates if a `value` resides between a specified `interval` (inclusive).
 
 ``` javascript
 validate( 'interval[5,7]', 6 );
-// Returns true
+// returns true
 
 validate( 'interval[5,7]', 4 );
-// Returns false
+// returns false
 ```
 
-Note: validates that a `value` is a `number`.
+__Note__: validates that all input arguments are of type `number`.
 
 
 #### [empty](https://github.com/validate-io/empty)
@@ -475,43 +473,46 @@ Validates if a `value` is `empty`. This method only applies to `string`, `array`
 
 ``` javascript
 validate( 'empty', '' );
-// Returns true
+// returns true
 
 validate( 'empty', [] );
-// Returns true
+// returns true
 
 validate( 'empty', {} );
-// Returns true
+// returns true
 
 validate( 'empty', 'foo' );
-// Returns false
+// returns false
 
 validate( 'empty', [1] );
-// Returns false
+// returns false
 
 validate( 'empty', {'beep':'boop'} );
-// Returns false
+// returns false
 ```
 
 #### [length](https://github.com/validate-io/length)
 
-Validates if a `value` is either exactly a specified `length` or within an `interval` (inclusive). This method applies only to `string` and `array` value types.
+Validates if a `value` is either exactly a specified `length` or within an `interval` (inclusive). This method applies only to `string`, `function`, and `array` value types.
 
 ``` javascript
 validate( 'length[2]', 'ok' );
-// Returns true
+// returns true
 
 validate( 'length[2]', [0,1] );
-// Returns true
+// returns true
+
+validate( 'length[2]', function(a,b){} );
+// returns true
 
 validate( 'length[1,3]', 'ok' );
-// Returns true
+// returns true
 
 validate( 'length[1,3]', [0,1] );
-// Returns true
+// returns true
 
 validate( 'length[2]', 'beep' );
-// Returns false
+// returns false
 ```
 
 
@@ -521,13 +522,13 @@ Validates if a `value` matches a specified set of possible values. This method a
 
 ``` javascript
 validate( 'matches[beep,boop,bop]', 'beep' );
-// Returns true
+// returns true
 
 validate( 'matches[1,3,5,7,9]', 5 );
-// Returns true
+// returns true
 
 validate( 'matches[beep,boop,bop]', 'bap' );
-// Returns false
+// returns false
 ```
 
 
@@ -537,13 +538,13 @@ Validates if a `value` is an IP address.
 
 ``` javascript
 validate( 'ip_address', '192.168.17.142' );
-// Returns true
+// returns true
 
 validate( 'ip_address', '256.248.10.46' );
-// Returns false
+// returns false
 ```
 
-Note: validates that a `value` is a `string`.
+__Note__: validates that a `value` is a `string`.
 
 
 
@@ -622,7 +623,7 @@ Inspired by [validate.js]( http://rickharrison.github.io/validate.js/ ) and [Cha
 
 ### Unit
 
-Unit tests use the [Mocha](http://visionmedia.github.io/mocha) test framework with [Chai](http://chaijs.com) assertions. To run the tests, execute the following command in the top-level application directory:
+Unit tests use the [Mocha](http://mochajs.org) test framework with [Chai](http://chaijs.com) assertions. To run the tests, execute the following command in the top-level application directory:
 
 ``` bash
 $ make test
@@ -642,16 +643,16 @@ $ make test-cov
 Istanbul creates a `./reports/coverage` directory. To access an HTML version of the report,
 
 ``` bash
-$ open reports/coverage/lcov-report/index.html
+$ make view-cov
 ```
 
 
+---
 ## License
 
 [MIT license](http://opensource.org/licenses/MIT). 
 
 
----
 ## Copyright
 
 Copyright &copy; 2014. Athan Reines.

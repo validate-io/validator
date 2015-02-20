@@ -1,3 +1,5 @@
+/* global require, describe, it */
+'use strict';
 
 // MODULES //
 
@@ -17,13 +19,12 @@ var expect = chai.expect,
 // TESTS //
 
 describe( 'input-validation', function tests() {
-	'use strict';
 
 	describe( 'length', function tests() {
 
 		it( 'should positively validate', function test() {
 			var ok;
-			
+
 			ok = validate( 'length[2]', 'ok' );
 			assert.ok( ok );
 
@@ -33,18 +34,18 @@ describe( 'input-validation', function tests() {
 
 		it( 'should negatively validate', function test() {
 			var values = [
-					5,
-					true,
-					[],
-					[1,2,3],
-					'5',
-					'536',
-					function(){},
-					null,
-					NaN,
-					{'foo':'bar'},
-					undefined
-				];
+				5,
+				true,
+				[],
+				[1,2,3],
+				'5',
+				'536',
+				function(){},
+				null,
+				NaN,
+				{'foo':'bar'},
+				undefined
+			];
 
 			for ( var i = 0; i < values.length; i++ ) {
 				assert.ok( !validate( 'length[2]', values[i] ) );
@@ -53,7 +54,7 @@ describe( 'input-validation', function tests() {
 
 		it( 'should positively validate for a range', function test() {
 			var ok;
-			
+
 			ok = validate( 'length[1,3]', 'ok' );
 			assert.ok( ok );
 
@@ -63,18 +64,18 @@ describe( 'input-validation', function tests() {
 
 		it( 'should negatively validate for a range', function test() {
 			var values = [
-					5,
-					true,
-					[],
-					[1,2,3,4],
-					'',
-					'5369',
-					function(){},
-					null,
-					NaN,
-					{'foo':'bar'},
-					undefined
-				];
+				5,
+				true,
+				[],
+				[1,2,3,4],
+				'',
+				'5369',
+				function(){},
+				null,
+				NaN,
+				{'foo':'bar'},
+				undefined
+			];
 
 			for ( var i = 0; i < values.length; i++ ) {
 				assert.ok( !validate( 'length[1,3]', values[i] ) );

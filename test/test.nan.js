@@ -1,3 +1,5 @@
+/* global require, describe, it */
+'use strict';
 
 // MODULES //
 
@@ -17,7 +19,6 @@ var expect = chai.expect,
 // TESTS //
 
 describe( 'input-validation', function tests() {
-	'use strict';
 
 	describe( 'nan', function tests() {
 
@@ -27,15 +28,15 @@ describe( 'input-validation', function tests() {
 
 		it( 'should negatively validate', function test() {
 			var values = [
-					true,
-					[],
-					'5',
-					function(){},
-					null,
-					{},
-					5,
-					undefined
-				];
+				true,
+				[],
+				'5',
+				function(){},
+				null,
+				{},
+				5,
+				undefined
+			];
 
 			for ( var i = 0; i < values.length; i++ ) {
 				assert.ok( !validate( 'nan', values[i] ) );

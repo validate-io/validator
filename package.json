@@ -26,8 +26,30 @@
     "api",
     "validator",
     "validation",
+    "is",
     "valid",
-    "validate.io"
+    "validate.io",
+    "timestamp",
+    "time",
+    "length",
+    "function",
+    "empty",
+    "integer",
+    "number",
+    "string",
+    "nan",
+    "null",
+    "undefined",
+    "object",
+    "array",
+    "properties",
+    "lowercase",
+    "uppercase",
+    "regexp",
+    "date",
+    "boolean",
+    "interval",
+    "ip address"
   ],
   "bugs": {
     "url": "https://github.com/validate-io/validator/issues"
@@ -65,7 +87,9 @@
     "chai": "1.x.x",
     "coveralls": "^2.11.1",
     "istanbul": "^0.3.0",
-    "mocha": "1.x.x"
+    "mocha": "1.x.x",
+    "jshint": "^2.5.10",
+    "jshint-stylish": "^1.0.0"
   },
   "licenses": [
     {

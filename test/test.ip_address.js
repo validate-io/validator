@@ -1,3 +1,5 @@
+/* global require, describe, it */
+'use strict';
 
 // MODULES //
 
@@ -17,7 +19,6 @@ var expect = chai.expect,
 // TESTS //
 
 describe( 'input-validation', function tests() {
-	'use strict';
 
 	describe( 'ip_address', function tests() {
 
@@ -27,20 +28,20 @@ describe( 'input-validation', function tests() {
 
 		it( 'should negatively validate', function test() {
 			var values = [
-					5,
-					'256.255.92.1',
-					'192.168.17.92.1',
-					'1.1',
-					'10.10.10',
-					true,
-					[],
-					'5',
-					function(){},
-					null,
-					{},
-					NaN,
-					undefined
-				];
+				5,
+				'256.255.92.1',
+				'192.168.17.92.1',
+				'1.1',
+				'10.10.10',
+				true,
+				[],
+				'5',
+				function(){},
+				null,
+				{},
+				NaN,
+				undefined
+			];
 
 			for ( var i = 0; i < values.length; i++ ) {
 				assert.ok( !validate( 'ip_address', values[i] ) );

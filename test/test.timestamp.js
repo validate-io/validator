@@ -1,3 +1,5 @@
+/* global require, describe, it */
+'use strict';
 
 // MODULES //
 
@@ -17,7 +19,6 @@ var expect = chai.expect,
 // TESTS //
 
 describe( 'input-validation', function tests() {
-	'use strict';
 
 	describe( 'timestamp', function tests() {
 
@@ -30,19 +31,19 @@ describe( 'input-validation', function tests() {
 
 		it( 'should negatively validate', function test() {
 			var values = [
-					123456,
-					new Date(),
-					'72ms-ago',
-					'2014/07/18-09:34:42',
-					true,
-					[],
-					'5',
-					function(){},
-					null,
-					{},
-					NaN,
-					undefined
-				];
+				123456,
+				new Date(),
+				'72ms-ago',
+				'2014/07/18-09:34:42',
+				true,
+				[],
+				'5',
+				function(){},
+				null,
+				{},
+				NaN,
+				undefined
+			];
 
 			for ( var i = 0; i < values.length; i++ ) {
 				assert.ok( !validate( 'timestamp', values[i] ) );

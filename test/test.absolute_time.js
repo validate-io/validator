@@ -1,3 +1,5 @@
+/* global require, describe, it */
+'use strict';
 
 // MODULES //
 
@@ -17,7 +19,6 @@ var expect = chai.expect,
 // TESTS //
 
 describe( 'input-validation', function tests() {
-	'use strict';
 
 	describe( 'absolute_time', function tests() {
 
@@ -28,19 +29,19 @@ describe( 'input-validation', function tests() {
 
 		it( 'should negatively validate', function test() {
 			var values = [
-					1,
-					new Date(),
-					'72ms-ago',
-					Date.now(),
-					true,
-					[],
-					'5',
-					function(){},
-					null,
-					{},
-					NaN,
-					undefined
-				];
+				1,
+				new Date(),
+				'72ms-ago',
+				Date.now(),
+				true,
+				[],
+				'5',
+				function(){},
+				null,
+				{},
+				NaN,
+				undefined
+			];
 
 			for ( var i = 0; i < values.length; i++ ) {
 				assert.ok( !validate( 'absolute_time', values[i] ) );

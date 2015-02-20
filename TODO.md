@@ -19,6 +19,7 @@ TODO
 16. is svg tag
 17. ip (ipv4, ipv6; if no params, then allow both)
 18. semvar
+19. 
 
 
 

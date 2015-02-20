@@ -18,6 +18,7 @@ The primary [motivation](https://github.com/validate-io/overview) for this modul
 	* 	[array](#array)
 	* 	[function](#function)
 	*	[string](#string)
+	*	[string_array](#string_array)
 	* 	[lowercase](#lowercase)
 	* 	[uppercase](#uppercase)
 	* 	[boolean](#boolean)
@@ -207,6 +208,20 @@ validate( 'string', 'beep' );
 validate( 'string', 5 );
 // returns false
 ```
+```
+
+#### [string_array](https://github.com/validate-io/string-array)
+
+Validates if a `value` is a `string array`.
+
+``` javascript
+validate( 'string_array', ['a','b'] );
+// returns true
+
+validate( 'string_array', [1,2] );
+// returns false
+```
+
 
 #### [lowercase](https://github.com/validate-io/lowercase)
 

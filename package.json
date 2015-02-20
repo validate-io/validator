@@ -50,7 +50,8 @@
     "date",
     "boolean",
     "interval",
-    "ip address"
+    "ip address",
+    "stringarray"
   ],
   "bugs": {
     "url": "https://github.com/validate-io/validator/issues"
@@ -80,6 +81,7 @@
     "validate.io-strict-date": "1.0.x",
     "validate.io-strict-properties": "1.0.x",
     "validate.io-string": "1.0.x",
+    "validate.io-string-array": "^1.0.0",
     "validate.io-timestamp": "1.0.x",
     "validate.io-undefined": "1.0.x",
     "validate.io-uppercase": "1.0.x"

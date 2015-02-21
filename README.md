@@ -18,6 +18,7 @@ The primary [motivation](https://github.com/validate-io/overview) for this modul
 	*	[strict_properties](#strict_properties)
 	* 	[array](#array)
 	*	[array_array](#array_array)
+	*	[unique](#unique)
 	* 	[function](#function)
 	*	[string](#string)
 	*	[string_array](#string_array)
@@ -202,6 +203,18 @@ validate( 'array', {} );
 // returns false
 ```
 
+
+#### [unique](https://github.com/validate-io/unique)
+
+Validates if a `value` is a unique `array`; i.e., only contains unique elements.
+
+``` javascript
+validate( 'unique', [1,2,3] );
+// returns true
+
+validate( 'unique', [1,2,1] );
+// returns false
+```
 
 
 #### [array_array](https://github.com/validate-io/array-array)

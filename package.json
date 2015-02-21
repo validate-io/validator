@@ -91,6 +91,7 @@
     "validate.io-string-array": "^1.0.0",
     "validate.io-timestamp": "1.0.x",
     "validate.io-undefined": "1.0.x",
+    "validate.io-unique": "^1.0.0",
     "validate.io-uppercase": "1.0.x"
   },
   "devDependencies": {

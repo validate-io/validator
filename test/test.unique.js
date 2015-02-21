@@ -20,10 +20,10 @@ var expect = chai.expect,
 
 describe( 'input-validation', function tests() {
 
-	describe( 'string_array', function tests() {
+	describe( 'unique', function tests() {
 
 		it( 'should positively validate', function test() {
-			assert.ok( validate( 'string_array', ['a','b'] ) );
+			assert.ok( validate( 'unique', ['a','b'] ) );
 		});
 
 		it( 'should negatively validate', function test() {
@@ -36,11 +36,11 @@ describe( 'input-validation', function tests() {
 				function(){},
 				undefined,
 				[],
-				[1,2]
+				[1,1]
 			];
 
 			for ( var i = 0; i < values.length; i++ ) {
-				assert.notOk( validate( 'string_array', values[i] ) );
+				assert.notOk( validate( 'unique', values[i] ) );
 			}
 		});
 

@@ -13,6 +13,7 @@ The primary [motivation](https://github.com/validate-io/overview) for this modul
 1. 	[Usage](#usage)
 1. 	[Rules](#rules)
 	*	[primitive](#primitive)
+	*	[primitive_array](#primitive_array)
 	*	[object](#object)
 	*	[object_array](#object_array)
 	*	[properties](#properties)
@@ -137,6 +138,20 @@ validate( 'primitive', {} );
 ```
 
 
+
+#### [primitive_array](https://github.com/validate-io/primitive-array)
+
+Validates if a `value` is a `array` of JavaScript primitives.
+
+``` javascript
+validate( 'primitive_array', [null,undefined,false,0,''] );
+// returns true
+
+validate( 'primitive_array', [{},[],new String()] );
+// returns false
+```
+
+
 #### [object](https://github.com/validate-io/object)
 
 Validates if a `value` is an `object`; e.g., `{}`.
@@ -158,7 +173,7 @@ validate( 'object', null );
 Validates if a `value` is an `object array`.
 
 ``` javascript
-validate( 'object_array', [{},{} );
+validate( 'object_array', [{},{}] );
 // returns true
 
 validate( 'object_array', [{},null] );

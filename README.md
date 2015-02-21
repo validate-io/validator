@@ -19,6 +19,7 @@ The primary [motivation](https://github.com/validate-io/overview) for this modul
 	* 	[array](#array)
 	*	[array_array](#array_array)
 	*	[unique](#unique)
+	*	[permutation](#permutation)
 	* 	[function](#function)
 	*	[string](#string)
 	*	[string_array](#string_array)
@@ -215,6 +216,21 @@ validate( 'unique', [1,2,3] );
 validate( 'unique', [1,2,1] );
 // returns false
 ```
+
+
+#### [permutation](https://github.com/validate-io/permutation)
+
+Validates if a `value` is an `array` permutation.
+
+``` javascript
+validate( 'permutation[1,2,3]', ['2','1','3'] );
+// returns true
+
+validate( 'permutation[1,2,3]', ['1','2','1'] );
+// returns false
+```
+
+__WARNING__: the permutation parameter `array` is cast as a `string array`. Hence, in order to handle numeric `arrays`, cast numeric values to `strings` __before__ attempting to validate.
 
 
 #### [array_array](https://github.com/validate-io/array-array)

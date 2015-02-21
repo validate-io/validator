@@ -12,6 +12,7 @@ The primary [motivation](https://github.com/validate-io/overview) for this modul
 1. 	[Installation](#installation)
 1. 	[Usage](#usage)
 1. 	[Rules](#rules)
+	*	[primitive](#primitive)
 	*	[object](#object)
 	*	[object_array](#object_array)
 	*	[properties](#properties)
@@ -115,6 +116,25 @@ if ( !validate( rules, obj ) ) {
 ### Rules 
 
 The following validation rules are supported...
+
+
+#### [primitive](https://github.com/validate-io/primitive)
+
+Validates if a `value` is a JavaScript primitive: `null`, `string`, `number`, `undefined`, `boolean`.
+
+``` javascript
+validate( 'primitive', '' );
+// returns true
+
+validate( 'primitive', 0 );
+// returns true
+
+validate( 'primitive', null );
+// returns true
+
+validate( 'primitive', {} );
+// returns false
+```
 
 
 #### [object](https://github.com/validate-io/object)

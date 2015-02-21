@@ -58,6 +58,7 @@
   },
   "dependencies": {
     "validate.io-absolute-time": "1.0.x",
+    "validate.io-alphanumeric": "^1.0.0",
     "validate.io-array": "1.0.x",
     "validate.io-array-array": "^1.0.0",
     "validate.io-boolean": "1.0.x",

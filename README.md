@@ -21,6 +21,7 @@ The primary [motivation](https://github.com/validate-io/overview) for this modul
 	* 	[function](#function)
 	*	[string](#string)
 	*	[string_array](#string_array)
+	*	[alphanumeric](#alphanumeric)
 	* 	[lowercase](#lowercase)
 	* 	[uppercase](#uppercase)
 	* 	[boolean](#boolean)
@@ -253,6 +254,19 @@ validate( 'string_array', ['a','b'] );
 // returns true
 
 validate( 'string_array', [1,2] );
+// returns false
+```
+
+
+#### [alphanumeric](https://github.com/validate-io/alphanumeric)
+
+Validates if a `value` is an alphanumeric `string`.
+
+``` javascript
+validate( 'alphanumeric', 'b1e2e3p' );
+// returns true
+
+validate( 'alphanumeric', '' );
 // returns false
 ```
 

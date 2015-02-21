@@ -7,7 +7,7 @@ TODO
 4. 	date (loose: parseable as date); isafter, isbefore (convert to timestamp);
 5. 	method(s) (prototype)
 6. 	buffer (tricky, as browsers have ArrayBuffer; may want to consider typed array validation)
-7. 	alphanumeric
+7. 	
 8. 	is capitalized
 9. 	includes (contains; thinking for arrays)
 10. hexcolor,rgb,rgba

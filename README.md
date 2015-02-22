@@ -21,6 +21,7 @@ The primary [motivation](https://github.com/validate-io/overview) for this modul
 	*	[strict_properties](#strict_properties)
 	* 	[array](#array)
 	*	[array_array](#array_array)
+	*	[square_matrix](#square_matrix)
 	*	[unique](#unique)
 	*	[permutation](#permutation)
 	* 	[function](#function)
@@ -292,6 +293,20 @@ validate( 'array_array', [[],[]] );
 // returns true
 
 validate( 'array_array', [[],{}] );
+// returns false
+```
+
+
+
+#### [square_matrix](https://github.com/validate-io/square-matrix)
+
+Validates if a `value` is an `array` of `arrays` and has equal dimensions.
+
+``` javascript
+validate( 'square_matrix', [[1,2],[1,2]] );
+// returns true
+
+validate( 'square_matrix', [[1],[1,2]] );
 // returns false
 ```
 

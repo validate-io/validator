@@ -46,6 +46,7 @@ The primary [motivation](https://github.com/validate-io/overview) for this modul
 	*	[integer_array](#integer_array)
 	*	[float](#float)
 	*	[nan](#nan)
+	*	[finite](#finite)
 	*	[greater_than](#greater_than)
 	*	[less_than](#less_than)
 	*	[interval](#interval)
@@ -637,6 +638,23 @@ validate( 'nan', NaN );
 validate( 'nan', 5.256 );
 // returns false
 ```
+
+
+
+#### [finite](https://github.com/validate-io/finite)
+
+Validates if a `value` is a `finite` number.
+
+``` javascript
+validate( 'finite', Number.MAX_VALUE );
+// returns true
+
+validate( 'finite', 0/0 );
+// returns false
+```
+
+__Note__: validates that a `value` is a `number`.
+
 
 
 #### [greater_than](https://github.com/validate-io/greater-than)

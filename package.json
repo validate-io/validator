@@ -72,6 +72,7 @@
     "validate.io-integer-array": "^1.0.0",
     "validate.io-interval": "1.0.x",
     "validate.io-ip-address": "1.0.x",
+    "validate.io-json": "^1.0.0",
     "validate.io-length": "1.0.x",
     "validate.io-less-than": "1.0.x",
     "validate.io-lowercase": "1.0.x",

@@ -16,6 +16,7 @@ The primary [motivation](https://github.com/validate-io/overview) for this modul
 	*	[primitive_array](#primitive_array)
 	*	[object](#object)
 	*	[object_array](#object_array)
+	*	[json](#json)
 	*	[properties](#properties)
 	*	[strict_properties](#strict_properties)
 	* 	[array](#array)
@@ -177,6 +178,20 @@ validate( 'object_array', [{},{}] );
 // returns true
 
 validate( 'object_array', [{},null] );
+// returns false
+```
+
+
+
+#### [json](https://github.com/validate-io/json)
+
+Validates if a `value` is a parseable JSON `string`.
+
+``` javascript
+validate( 'json', '{"a":5}' );
+// returns true
+
+validate( 'json', '{a":5}' );
 // returns false
 ```
 

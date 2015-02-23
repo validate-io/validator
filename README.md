@@ -13,49 +13,54 @@ The primary [motivation](https://github.com/validate-io/overview) for this modul
 1. 	[Usage](#usage)
 1. 	[Rules](#rules)
 	*	[primitive](#primitive)
-	*	[primitive_array](#primitive_array)
-	*	[object](#object)
-	*	[object_array](#object_array)
-	*	[json](#json)
-	*	[properties](#properties)
-	*	[strict_properties](#strict_properties)
-	* 	[array](#array)
-	*	[array_array](#array_array)
-	*	[square_matrix](#square_matrix)
-	*	[unique](#unique)
-	*	[permutation](#permutation)
-	* 	[function](#function)
-	*	[string](#string)
-	*	[string_array](#string_array)
-	*	[alphanumeric](#alphanumeric)
-	*	[alphanumeric_array](#alphanumeric_array)
-	* 	[lowercase](#lowercase)
-	* 	[uppercase](#uppercase)
-	* 	[boolean](#boolean)
-	*	[boolean_array](#boolean_array)
-	*	[regexp](#regexp)
-	* 	[strict_date](#strict_date)
-	* 	[timestamp](#timestamp)
-	*	[relative_time](#relative_time)
-	*	[absolute_time](#absolute_time)
 	*	[undefined](#undefined)
 	*	[null](#null)
-	*	[number](#number)
-	*	[number_array](#number_array)
-	*	[integer](#integer)
-	*	[integer_array](#integer_array)
-	*	[nonnegative_integer](#nonnegative_integer)
-	*	[nonpositive_integer](#nonpositive_integer)
-	*	[float](#float)
-	*	[nan](#nan)
-	*	[finite](#finite)
+	*	[boolean](#boolean)
+	*	[Strings](#strings)
+		-	[string](#string)
+		-	[alphanumeric](#alphanumeric)
+		- 	[lowercase](#lowercase)
+		- 	[uppercase](#uppercase)
+	*	[Numbers](#numbers)
+		-	[number](#number)
+		-	[integer](#integer)
+		-	[nonnegative_integer](#nonnegative_integer)
+		-	[nonpositive_integer](#nonpositive_integer)
+		-	[float](#float)
+		-	[nan](#nan)
+		-	[finite](#finite)
+	*	[Objects](#objects)
+		-	[object](#object)
+		-	[json](#json)
+		-	[properties](#properties)
+		-	[strict_properties](#strict_properties)
+	*	[Arrays](#arrays)
+		- 	[array](#array)
+		-	[primitive_array](#primitive_array)
+		-	[boolean_array](#boolean_array)
+		-	[string_array](#string_array)
+		-	[number_array](#number_array)
+		-	[integer_array](#integer_array)
+		-	[object_array](#object_array)
+		-	[array_array](#array_array)
+		-	[alphanumeric_array](#alphanumeric_array)
+		-	[square_matrix](#square_matrix)
+		-	[unique](#unique)
+		-	[permutation](#permutation)
+	*	[Time](#time)
+		- 	[strict_date](#strict_date)
+		-	[timestamp](#timestamp)
+		-	[relative_time](#relative_time)
+		-	[absolute_time](#absolute_time)
+	* 	[function](#function)
+	*	[regexp](#regexp)
+	* 	[ip_address](#ip_address)
 	*	[greater_than](#greater_than)
 	*	[less_than](#less_than)
 	*	[interval](#interval)
 	*	[empty](#empty)
 	*	[length](#length)
 	*	[matches](#matches)
-	* 	[ip_address](#ip_address)
 1. 	[Examples](#examples)
 1. 	[Notes](#notes)
 1. 	[Tests](#tests)
@@ -144,20 +149,220 @@ validate( 'primitive', {} );
 
 
 
-#### [primitive_array](https://github.com/validate-io/primitive-array)
+#### [undefined](https://github.com/validate-io/undefined)
 
-Validates if a `value` is a `array` of JavaScript primitives.
+Validates if a `value` is `undefined`.
 
 ``` javascript
-validate( 'primitive_array', [null,undefined,false,0,''] );
+validate( 'undefined', undefined );
 // returns true
 
-validate( 'primitive_array', [{},[],new String()] );
+validate( 'undefined', null );
+// returns false
+```
+
+#### [null](https://github.com/validate-io/null)
+
+Validates if a `value` is `null`.
+
+``` javascript
+validate( 'null', null );
+// returns true
+
+validate( 'null', false );
 // returns false
 ```
 
 
-#### [object](https://github.com/validate-io/object)
+
+#### [boolean](https://github.com/validate-io/boolean)
+
+Validates if a `value` is a `boolean`.
+
+``` javascript
+validate( 'boolean', true );
+// returns true
+
+validate( 'boolean', 1 );
+// returns false
+```
+
+
+
+
+#### Strings
+
+##### [string](https://github.com/validate-io/string)
+
+Validates if a `value` is a `string`.
+
+``` javascript
+validate( 'string', 'beep' );
+// returns true
+
+validate( 'string', 5 );
+// returns false
+```
+
+
+##### [alphanumeric](https://github.com/validate-io/alphanumeric)
+
+Validates if a `value` is an alphanumeric `string`.
+
+``` javascript
+validate( 'alphanumeric', 'b1e2e3p' );
+// returns true
+
+validate( 'alphanumeric', '' );
+// returns false
+```
+
+
+##### [lowercase](https://github.com/validate-io/lowercase)
+
+Validates if a `value` is a lowercase `string`.
+
+``` javascript
+validate( 'lowercase', 'beep' );
+// returns true
+
+validate( 'lowercase', 'Beep' );
+// returns false
+```
+
+__Note__: validates that a `value` is a `string`.
+
+
+##### [uppercase](https://github.com/validate-io/uppercase)
+
+Validates if a `value` is an uppercase `string`.
+
+``` javascript
+validate( 'uppercase', 'BEEP' );
+// returns true
+
+validate( 'uppercase', 'Beep' );
+// returns false
+```
+
+__Note__: validates that a `value` is a `string`. 
+
+
+
+
+#### Numbers
+
+##### [number](https://github.com/validate-io/number)
+
+Validates if a `value` is a `number`.
+
+``` javascript
+validate( 'number', 5.256 );
+// returns true
+
+validate( 'number', NaN );
+// returns false
+``` 
+
+__Note__: `NaN` is __not__ validated as a `number`. Both positive and negative `infinity` __are__ validated as `numbers`.
+
+
+
+##### [integer](https://github.com/validate-io/integer)
+
+Validates if a `value` is an `integer`.
+
+``` javascript
+validate( 'integer', 5 );
+// returns true
+
+validate( 'integer', 5.256 );
+// returns false
+```
+
+__Note__: validates that a `value` is a `number`.
+
+
+
+
+##### [nonnegative_integer](https://github.com/validate-io/nonnegative-integer)
+
+Validates if a `value` is a nonnegative `integer`.
+
+``` javascript
+validate( 'nonnegative_integer', 5 );
+// returns true
+
+validate( 'nonnegative_integer', 5.256 );
+// returns false
+```
+
+
+##### [nonpositive_integer](https://github.com/validate-io/nonpositive-integer)
+
+Validates if a `value` is a nonpositive `integer`.
+
+``` javascript
+validate( 'nonpositive_integer', -5 );
+// returns true
+
+validate( 'nonpositive_integer', -5.256 );
+// returns false
+```
+
+
+
+##### [float](https://github.com/validate-io/float)
+
+Validates if a `value` is a `float`.
+
+``` javascript
+validate( 'float', 5.256 );
+// returns true
+
+validate( 'float', 5 );
+// returns false
+```
+
+__Note__: validates that a `value` is a `number`.
+
+Note: in JavaScript, every numeric value is stored as a `float`. Here, we make a distinction based on whether the value has digits located after a decimal point. Hence, the distinction is semantic and not indicative of the underlying representation. 
+
+##### [nan](https://github.com/validate-io/nan)
+
+Validates if a `value` is `NaN`.
+
+``` javascript
+validate( 'nan', NaN );
+// returns true
+
+validate( 'nan', 5.256 );
+// returns false
+```
+
+
+
+##### [finite](https://github.com/validate-io/finite)
+
+Validates if a `value` is a `finite` number.
+
+``` javascript
+validate( 'finite', Number.MAX_VALUE );
+// returns true
+
+validate( 'finite', 0/0 );
+// returns false
+```
+
+__Note__: validates that a `value` is a `number`.
+
+
+
+
+
+#### Objects
+
+##### [object](https://github.com/validate-io/object)
 
 Validates if a `value` is an `object`; e.g., `{}`.
 
@@ -173,21 +378,8 @@ validate( 'object', null );
 ```
 
 
-#### [object_array](https://github.com/validate-io/object-array)
 
-Validates if a `value` is an `object array`.
-
-``` javascript
-validate( 'object_array', [{},{}] );
-// returns true
-
-validate( 'object_array', [{},null] );
-// returns false
-```
-
-
-
-#### [json](https://github.com/validate-io/json)
+##### [json](https://github.com/validate-io/json)
 
 Validates if a `value` is a parseable JSON `string`.
 
@@ -201,7 +393,7 @@ validate( 'json', '{a":5}' );
 
 
 
-#### [properties](https://github.com/validate-io/properties)
+##### [properties](https://github.com/validate-io/properties)
 
 Validates if a `value` has a specified set of `properties`. This method applies only to `object` value types and does __not__ extend up the prototype chain.
 
@@ -224,7 +416,7 @@ validate( 'properties[beep,boop,yo]', {
 __Note__: validates that a `value` is an `object`.
 
 
-#### [strict_properties](https://github.com/validate-io/strict-properties)
+##### [strict_properties](https://github.com/validate-io/strict-properties)
 
 Validates if a `value` __only__ has a specified set of `properties`. This method applies only to `object` value types and does __not__ extend up the prototype chain.
 
@@ -246,7 +438,12 @@ validate( 'stict_properties[beep,boop]', {
 __Note__: validates that a `value` is an `object`.
 
 
-#### [array](https://github.com/validate-io/array)
+
+
+
+#### Arrays
+
+##### [array](https://github.com/validate-io/array)
 
 Validates if a `value` is an `array`.
 
@@ -259,7 +456,125 @@ validate( 'array', {} );
 ```
 
 
-#### [unique](https://github.com/validate-io/unique)
+##### [primitive_array](https://github.com/validate-io/primitive-array)
+
+Validates if a `value` is a `array` of JavaScript primitives.
+
+``` javascript
+validate( 'primitive_array', [null,undefined,false,0,''] );
+// returns true
+
+validate( 'primitive_array', [{},[],new String()] );
+// returns false
+```
+
+
+##### [boolean_array](https://github.com/validate-io/boolean-array)
+
+Validates if a `value` is a `boolean array`.
+
+``` javascript
+validate( 'boolean_array', [true,false] );
+// returns true
+
+validate( 'boolean_array', [true,1] );
+// returns false
+```
+
+
+##### [string_array](https://github.com/validate-io/string-array)
+
+Validates if a `value` is a `string array`.
+
+``` javascript
+validate( 'string_array', ['a','b'] );
+// returns true
+
+validate( 'string_array', [1,2] );
+// returns false
+```
+
+
+##### [number_array](https://github.com/validate-io/number-array)
+
+Validates if a `value` is an `number array`.
+
+``` javascript
+validate( 'number_array', [3.14,2] );
+// returns true
+
+validate( 'number_array', [NaN,2] );
+// returns false
+```
+
+
+##### [integer_array](https://github.com/validate-io/integer-array)
+
+Validates if a `value` is an `integer array`.
+
+``` javascript
+validate( 'integer_array', [1,2] );
+// returns true
+
+validate( 'integer_array', ['1','2'] );
+// returns false
+```
+
+
+##### [object_array](https://github.com/validate-io/object-array)
+
+Validates if a `value` is an `object array`.
+
+``` javascript
+validate( 'object_array', [{},{}] );
+// returns true
+
+validate( 'object_array', [{},null] );
+// returns false
+```
+
+
+##### [array_array](https://github.com/validate-io/array-array)
+
+Validates if a `value` is an `array` of `arrays`.
+
+``` javascript
+validate( 'array_array', [[],[]] );
+// returns true
+
+validate( 'array_array', [[],{}] );
+// returns false
+```
+
+
+
+##### [alphanumeric_array](https://github.com/validate-io/alphanumeric-array)
+
+Validates if a `value` is an alphanumeric `array`.
+
+``` javascript
+validate( 'alphanumeric_array', ['a1','b2'] );
+// returns true
+
+validate( 'alphanumeric_array', ['',''] );
+// returns false
+```
+
+
+##### [square_matrix](https://github.com/validate-io/square-matrix)
+
+Validates if a `value` is an `array` of `arrays` and has equal dimensions.
+
+``` javascript
+validate( 'square_matrix', [[1,2],[1,2]] );
+// returns true
+
+validate( 'square_matrix', [[1],[1,2]] );
+// returns false
+```
+
+
+##### [unique](https://github.com/validate-io/unique)
 
 Validates if a `value` is a unique `array`; i.e., only contains unique elements.
 
@@ -272,7 +587,7 @@ validate( 'unique', [1,2,1] );
 ```
 
 
-#### [permutation](https://github.com/validate-io/permutation)
+##### [permutation](https://github.com/validate-io/permutation)
 
 Validates if a `value` is an `array` permutation.
 
@@ -287,174 +602,11 @@ validate( 'permutation[1,2,3]', ['1','2','1'] );
 __WARNING__: the permutation parameter `array` is cast as a `string array`. Hence, in order to handle numeric `arrays`, cast numeric values to `strings` __before__ attempting to validate.
 
 
-#### [array_array](https://github.com/validate-io/array-array)
 
-Validates if a `value` is an `array` of `arrays`.
 
-``` javascript
-validate( 'array_array', [[],[]] );
-// returns true
+#### Time
 
-validate( 'array_array', [[],{}] );
-// returns false
-```
-
-
-
-#### [square_matrix](https://github.com/validate-io/square-matrix)
-
-Validates if a `value` is an `array` of `arrays` and has equal dimensions.
-
-``` javascript
-validate( 'square_matrix', [[1,2],[1,2]] );
-// returns true
-
-validate( 'square_matrix', [[1],[1,2]] );
-// returns false
-```
-
-
-
-#### [function](https://github.com/validate-io/function)
-
-Validates if a `value` is a `function`.
-
-``` javascript
-function foo(){
-	console.log( 'boop' );
-}
-
-validate( 'function', foo );
-// returns true
-
-validate( 'function', [].length );
-// returns false
-```
-
-#### [string](https://github.com/validate-io/string)
-
-Validates if a `value` is a `string`.
-
-``` javascript
-validate( 'string', 'beep' );
-// returns true
-
-validate( 'string', 5 );
-// returns false
-```
-
-#### [string_array](https://github.com/validate-io/string-array)
-
-Validates if a `value` is a `string array`.
-
-``` javascript
-validate( 'string_array', ['a','b'] );
-// returns true
-
-validate( 'string_array', [1,2] );
-// returns false
-```
-
-
-#### [alphanumeric](https://github.com/validate-io/alphanumeric)
-
-Validates if a `value` is an alphanumeric `string`.
-
-``` javascript
-validate( 'alphanumeric', 'b1e2e3p' );
-// returns true
-
-validate( 'alphanumeric', '' );
-// returns false
-```
-
-
-
-#### [alphanumeric_array](https://github.com/validate-io/alphanumeric-array)
-
-Validates if a `value` is an alphanumeric `array`.
-
-``` javascript
-validate( 'alphanumeric_array', ['a1','b2'] );
-// returns true
-
-validate( 'alphanumeric_array', ['',''] );
-// returns false
-```
-
-
-
-#### [lowercase](https://github.com/validate-io/lowercase)
-
-Validates if a `value` is a lowercase `string`.
-
-``` javascript
-validate( 'lowercase', 'beep' );
-// returns true
-
-validate( 'lowercase', 'Beep' );
-// returns false
-```
-
-__Note__: validates that a `value` is a `string`.
-
-
-#### [uppercase](https://github.com/validate-io/uppercase)
-
-Validates if a `value` is an uppercase `string`.
-
-``` javascript
-validate( 'uppercase', 'BEEP' );
-// returns true
-
-validate( 'uppercase', 'Beep' );
-// returns false
-```
-
-__Note__: validates that a `value` is a `string`. 
-
-
-#### [boolean](https://github.com/validate-io/boolean)
-
-Validates if a `value` is a `boolean`.
-
-``` javascript
-validate( 'boolean', true );
-// returns true
-
-validate( 'boolean', 1 );
-// returns false
-```
-
-
-
-#### [boolean_array](https://github.com/validate-io/boolean-array)
-
-Validates if a `value` is a `boolean array`.
-
-``` javascript
-validate( 'boolean_array', [true,false] );
-// returns true
-
-validate( 'boolean_array', [true,1] );
-// returns false
-```
-
-
-
-#### [regexp](https://github.com/validate-io/regexp)
-
-Validates if a `value` is a regular expression.
-
-``` javascript
-validate( 'regexp', /.+/ );
-// returns true
-
-validate( 'regexp', '/.+/' );
-// returns false
-```
-
-#### [strict_date](https://github.com/validate-io/strict-date)
+##### [strict_date](https://github.com/validate-io/strict-date)
 
 Validates if a `value` is a `Date` object.
 
@@ -466,7 +618,7 @@ validate( 'strict_date', Date.now() );
 // returns false
 ```
 
-#### [timestamp](https://github.com/validate-io/timestamp)
+##### [timestamp](https://github.com/validate-io/timestamp)
 
 Validates if a `value` is a timestamp. A timestamp may be in either milliseconds (UNIX) or seconds.
 
@@ -487,7 +639,7 @@ validate( 'timestamp', new Date() );
 __Note__: validates that a `value` is a `number`.
 
 
-#### [relative_time](https://github.com/validate-io/relative-time)
+##### [relative_time](https://github.com/validate-io/relative-time)
 
 Validates if a `value` is formatted as relative time. Relative times have a time unit (`ms`, `s`, `m`, `h`, `d`, `w`, `n`, `y`) and the suffix `-ago`.
 
@@ -504,7 +656,7 @@ Note: the unit for months is `n`.
 __Note__: validates that a `value` is a `string`.
 
 
-#### [absolute_time](https://github.com/validate-io/absolute-time)
+##### [absolute_time](https://github.com/validate-io/absolute-time)
 
 Validates if a `value` is an absolute time (date); e.g., `2014/07/18-9:34:42`. An absolute date is formatted according to the following rules:
 
@@ -531,158 +683,54 @@ validate( 'absolute_time', new Date().toString() );
 __Note__: validates that a `value` is a `string`.
 
 
-#### [undefined](https://github.com/validate-io/undefined)
 
-Validates if a `value` is `undefined`.
+#### [function](https://github.com/validate-io/function)
 
-``` javascript
-validate( 'undefined', undefined );
-// returns true
-
-validate( 'undefined', null );
-// returns false
-```
-
-#### [null](https://github.com/validate-io/null)
-
-Validates if a `value` is `null`.
+Validates if a `value` is a `function`.
 
 ``` javascript
-validate( 'null', null );
+function foo(){
+	console.log( 'boop' );
+}
+
+validate( 'function', foo );
 // returns true
 
-validate( 'null', false );
-// returns false
-```
-
-#### [number](https://github.com/validate-io/number)
-
-Validates if a `value` is a `number`.
-
-``` javascript
-validate( 'number', 5.256 );
-// returns true
-
-validate( 'number', NaN );
-// returns false
-``` 
-
-__Note__: `NaN` is __not__ validated as a `number`. Both positive and negative `infinity` __are__ validated as `numbers`.
-
-
-
-#### [number_array](https://github.com/validate-io/number-array)
-
-Validates if a `value` is an `number array`.
-
-``` javascript
-validate( 'number_array', [3.14,2] );
-// returns true
-
-validate( 'number_array', [NaN,2] );
+validate( 'function', [].length );
 // returns false
 ```
 
 
-#### [integer](https://github.com/validate-io/integer)
+#### [regexp](https://github.com/validate-io/regexp)
 
-Validates if a `value` is an `integer`.
-
-``` javascript
-validate( 'integer', 5 );
-// returns true
-
-validate( 'integer', 5.256 );
-// returns false
-```
-
-__Note__: validates that a `value` is a `number`.
-
-
-
-#### [integer_array](https://github.com/validate-io/integer-array)
-
-Validates if a `value` is an `integer array`.
+Validates if a `value` is a regular expression.
 
 ``` javascript
-validate( 'integer_array', [1,2] );
+validate( 'regexp', /.+/ );
 // returns true
 
-validate( 'integer_array', ['1','2'] );
-// returns false
-```
-
-
-#### [nonnegative_integer](https://github.com/validate-io/nonnegative-integer)
-
-Validates if a `value` is a nonnegative `integer`.
-
-``` javascript
-validate( 'nonnegative_integer', 5 );
-// returns true
-
-validate( 'nonnegative_integer', 5.256 );
-// returns false
-```
-
-
-#### [nonpositive_integer](https://github.com/validate-io/nonpositive-integer)
-
-Validates if a `value` is a nonpositive `integer`.
-
-``` javascript
-validate( 'nonpositive_integer', -5 );
-// returns true
-
-validate( 'nonpositive_integer', -5.256 );
+validate( 'regexp', '/.+/' );
 // returns false
 ```
 
 
 
-#### [float](https://github.com/validate-io/float)
 
-Validates if a `value` is a `float`.
+#### [ip_address](https://github.com/validate-io/ip-address)
+
+Validates if a `value` is an IP address.
 
 ``` javascript
-validate( 'float', 5.256 );
+validate( 'ip_address', '192.168.17.142' );
 // returns true
 
-validate( 'float', 5 );
+validate( 'ip_address', '256.248.10.46' );
 // returns false
 ```
 
-__Note__: validates that a `value` is a `number`.
-
-Note: in JavaScript, every numeric value is stored as a `float`. Here, we make a distinction based on whether the value has digits located after a decimal point. Hence, the distinction is semantic and not indicative of the underlying representation. 
-
-#### [nan](https://github.com/validate-io/nan)
-
-Validates if a `value` is `NaN`.
-
-``` javascript
-validate( 'nan', NaN );
-// returns true
-
-validate( 'nan', 5.256 );
-// returns false
-```
+__Note__: validates that a `value` is a `string`.
 
 
-
-#### [finite](https://github.com/validate-io/finite)
-
-Validates if a `value` is a `finite` number.
-
-``` javascript
-validate( 'finite', Number.MAX_VALUE );
-// returns true
-
-validate( 'finite', 0/0 );
-// returns false
-```
-
-__Note__: validates that a `value` is a `number`.
 
 
 
@@ -794,22 +842,6 @@ validate( 'matches[1,3,5,7,9]', 5 );
 validate( 'matches[beep,boop,bop]', 'bap' );
 // returns false
 ```
-
-
-#### [ip_address](https://github.com/validate-io/ip-address)
-
-Validates if a `value` is an IP address.
-
-``` javascript
-validate( 'ip_address', '192.168.17.142' );
-// returns true
-
-validate( 'ip_address', '256.248.10.46' );
-// returns false
-```
-
-__Note__: validates that a `value` is a `string`.
-
 
 
 

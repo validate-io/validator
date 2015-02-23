@@ -46,6 +46,7 @@ The primary [motivation](https://github.com/validate-io/overview) for this modul
 		-	[object_array](#object_array)
 		-	[array_array](#array_array)
 		-	[alphanumeric_array](#alphanumeric_array)
+		-	[strict_date_array](#strict_date_array)
 		-	[square_matrix](#square_matrix)
 		-	[unique](#unique)
 		-	[permutation](#permutation)
@@ -593,6 +594,20 @@ validate( 'alphanumeric_array', ['a1','b2'] );
 // returns true
 
 validate( 'alphanumeric_array', ['',''] );
+// returns false
+```
+
+
+
+##### [strict_date_array](https://github.com/validate-io/strict-date-array)
+
+Validates if a `value` is an `array` of `Date` objects.
+
+``` javascript
+validate( 'strict_date_array', [new Date(), new Date()] );
+// returns true
+
+validate( 'strict_date_array', [new Date(), Date.now()] );
 // returns false
 ```
 

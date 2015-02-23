@@ -96,6 +96,7 @@
     "validate.io-relative-time": "1.0.x",
     "validate.io-square-matrix": "^1.0.0",
     "validate.io-strict-date": "1.0.x",
+    "validate.io-strict-date-array": "^1.0.0",
     "validate.io-strict-properties": "1.0.x",
     "validate.io-string": "1.0.x",
     "validate.io-string-array": "^1.0.0",

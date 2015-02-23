@@ -20,10 +20,10 @@ var expect = chai.expect,
 
 describe( 'input-validation', function tests() {
 
-	describe( 'string_array', function tests() {
+	describe( 'strict_date_array', function tests() {
 
 		it( 'should positively validate', function test() {
-			assert.ok( validate( 'string_array', ['a','b'] ) );
+			assert.ok( validate( 'strict_date_array', [new Date(), new Date()] ) );
 		});
 
 		it( 'should negatively validate', function test() {
@@ -36,12 +36,14 @@ describe( 'input-validation', function tests() {
 				NaN,
 				function(){},
 				undefined,
+				new Date(),
 				[],
-				[1,2]
+				[new Date(), Date.now()],
+				[{}]
 			];
 
 			for ( var i = 0; i < values.length; i++ ) {
-				assert.notOk( validate( 'string_array', values[i] ) );
+				assert.notOk( validate( 'strict_date_array', values[i] ) );
 			}
 		});
 

@@ -149,6 +149,7 @@ validate( 'primitive', {} );
 
 
 
+===
 #### [undefined](https://github.com/validate-io/undefined)
 
 Validates if a `value` is `undefined`.

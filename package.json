@@ -79,6 +79,8 @@
     "validate.io-lowercase": "1.0.x",
     "validate.io-matches": "1.0.x",
     "validate.io-nan": "1.0.x",
+    "validate.io-nonnegative-integer": "^1.0.0",
+    "validate.io-nonpositive-integer": "^1.0.0",
     "validate.io-null": "1.0.x",
     "validate.io-number": "1.0.x",
     "validate.io-number-array": "^1.0.0",

@@ -44,6 +44,8 @@ The primary [motivation](https://github.com/validate-io/overview) for this modul
 	*	[number_array](#number_array)
 	*	[integer](#integer)
 	*	[integer_array](#integer_array)
+	*	[nonnegative_integer](#nonnegative_integer)
+	*	[nonpositive_integer](#nonpositive_integer)
 	*	[float](#float)
 	*	[nan](#nan)
 	*	[finite](#finite)
@@ -609,6 +611,33 @@ validate( 'integer_array', [1,2] );
 validate( 'integer_array', ['1','2'] );
 // returns false
 ```
+
+
+#### [nonnegative_integer](https://github.com/validate-io/nonnegative-integer)
+
+Validates if a `value` is a nonnegative `integer`.
+
+``` javascript
+validate( 'nonnegative_integer', 5 );
+// returns true
+
+validate( 'nonnegative_integer', 5.256 );
+// returns false
+```
+
+
+#### [nonpositive_integer](https://github.com/validate-io/nonpositive-integer)
+
+Validates if a `value` is a nonpositive `integer`.
+
+``` javascript
+validate( 'nonpositive_integer', -5 );
+// returns true
+
+validate( 'nonpositive_integer', -5.256 );
+// returns false
+```
+
 
 
 #### [float](https://github.com/validate-io/float)

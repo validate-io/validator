@@ -25,7 +25,9 @@ The primary [motivation](https://github.com/validate-io/overview) for this modul
 		-	[number](#number)
 		-	[integer](#integer)
 		-	[nonnegative_integer](#nonnegative_integer)
+		-	[positive_integer](#positive_integer)
 		-	[nonpositive_integer](#nonpositive_integer)
+		-	[negative_integer](#negative_integer)
 		-	[float](#float)
 		-	[nan](#nan)
 		-	[finite](#finite)
@@ -305,6 +307,19 @@ validate( 'nonnegative_integer', 5.256 );
 ```
 
 
+##### [positive_integer](https://github.com/validate-io/positive-integer)
+
+Validates if a `value` is a positive `integer`.
+
+``` javascript
+validate( 'positive_integer', 5 );
+// returns true
+
+validate( 'positive_integer', 0 );
+// returns false
+```
+
+
 ##### [nonpositive_integer](https://github.com/validate-io/nonpositive-integer)
 
 Validates if a `value` is a nonpositive `integer`.
@@ -317,6 +332,18 @@ validate( 'nonpositive_integer', -5.256 );
 // returns false
 ```
 
+
+##### [negative_integer](https://github.com/validate-io/positive-integer)
+
+Validates if a `value` is a negative `integer`.
+
+``` javascript
+validate( 'negative_integer', -5 );
+// returns true
+
+validate( 'negative_integer', 0 );
+// returns false
+```
 
 
 ##### [float](https://github.com/validate-io/float)

@@ -162,6 +162,9 @@ validate( 'undefined', null );
 // returns false
 ```
 
+
+
+===
 #### [null](https://github.com/validate-io/null)
 
 Validates if a `value` is `null`.
@@ -176,6 +179,7 @@ validate( 'null', false );
 
 
 
+===
 #### [boolean](https://github.com/validate-io/boolean)
 
 Validates if a `value` is a `boolean`.
@@ -191,6 +195,7 @@ validate( 'boolean', 1 );
 
 
 
+===
 #### Strings
 
 ##### [string](https://github.com/validate-io/string)
@@ -251,6 +256,7 @@ __Note__: validates that a `value` is a `string`.
 
 
 
+===
 #### Numbers
 
 ##### [number](https://github.com/validate-io/number)
@@ -361,6 +367,7 @@ __Note__: validates that a `value` is a `number`.
 
 
 
+===
 #### Objects
 
 ##### [object](https://github.com/validate-io/object)
@@ -442,6 +449,7 @@ __Note__: validates that a `value` is an `object`.
 
 
 
+===
 #### Arrays
 
 ##### [array](https://github.com/validate-io/array)
@@ -605,6 +613,7 @@ __WARNING__: the permutation parameter `array` is cast as a `string array`. Henc
 
 
 
+===
 #### Time
 
 ##### [strict_date](https://github.com/validate-io/strict-date)
@@ -685,6 +694,7 @@ __Note__: validates that a `value` is a `string`.
 
 
 
+===
 #### [function](https://github.com/validate-io/function)
 
 Validates if a `value` is a `function`.
@@ -702,6 +712,7 @@ validate( 'function', [].length );
 ```
 
 
+===
 #### [regexp](https://github.com/validate-io/regexp)
 
 Validates if a `value` is a regular expression.
@@ -717,6 +728,7 @@ validate( 'regexp', '/.+/' );
 
 
 
+===
 #### [ip_address](https://github.com/validate-io/ip-address)
 
 Validates if a `value` is an IP address.
@@ -735,6 +747,7 @@ __Note__: validates that a `value` is a `string`.
 
 
 
+===
 #### [greater_than](https://github.com/validate-io/greater-than)
 
 Validates if a `value` is greater than a `comparator` value.
@@ -780,6 +793,8 @@ validate( 'interval[5,7]', 4 );
 __Note__: validates that all input arguments are of type `number`.
 
 
+
+===
 #### [empty](https://github.com/validate-io/empty)
 
 Validates if a `value` is `empty`. This method only applies to `string`, `array`, and `object` value types.
@@ -804,6 +819,9 @@ validate( 'empty', {'beep':'boop'} );
 // returns false
 ```
 
+
+
+===
 #### [length](https://github.com/validate-io/length)
 
 Validates if a `value` is either exactly a specified `length` or within an `interval` (inclusive). This method applies only to `string`, `function`, and `array` value types.
@@ -829,6 +847,8 @@ validate( 'length[2]', 'beep' );
 ```
 
 
+
+===
 #### [matches](https://github.com/validate-io/matches)
 
 Validates if a `value` matches a specified set of possible values. This method applies only to `string` and `number` value types.

@@ -24,7 +24,9 @@ The primary [motivation](https://github.com/validate-io/overview) for this modul
 	*	[Numbers](#numbers)
 		-	[number](#number)
 		-	[nonnegative](#nonnegative)
+		-	[nonpositive](#nonpositive)
 		-	[positive](#positive)
+		-	[negative](#negative)
 		-	[integer](#integer)
 		-	[nonnegative_integer](#nonnegative_integer)
 		-	[positive_integer](#positive_integer)
@@ -302,6 +304,23 @@ validate( 'nonnegative', -Math.PI );
 ```
 
 
+
+##### [nonpositive](https://github.com/validate-io/nonpositive)
+
+Validates if a `value` is a nonpositive `number`.
+
+``` javascript
+validate( 'nonpositive', -5 );
+// returns true
+
+validate( 'nonpositive', 0 );
+// returns true
+
+validate( 'nonpositive', Math.PI );
+// returns false
+```
+
+
 ##### [positive](https://github.com/validate-io/positive)
 
 Validates if a `value` is a positive `number`.
@@ -314,6 +333,22 @@ validate( 'positive', 0 );
 // returns false
 
 validate( 'positive', -Math.PI );
+// returns false
+```
+
+
+##### [negative](https://github.com/validate-io/negative)
+
+Validates if a `value` is a negative `number`.
+
+``` javascript
+validate( 'negative', -5 );
+// returns true
+
+validate( 'negative', 0 );
+// returns false
+
+validate( 'negative', Math.PI );
 // returns false
 ```
 

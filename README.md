@@ -44,8 +44,6 @@ The primary [motivation](https://github.com/validate-io/overview) for this modul
 		-	[boolean_array](#boolean_array)
 		-	[string_array](#string_array)
 		-	[number_array](#number_array)
-		-	[number_array_min](#number_array_min)
-		-	[number_array_max](#number_array_max)
 		-	[integer_array](#integer_array)
 		-	[nonnegative_integer_array](#nonnegative_integer_array)
 		-	[object_array](#object_array)
@@ -53,6 +51,10 @@ The primary [motivation](https://github.com/validate-io/overview) for this modul
 		-	[alphanumeric_array](#alphanumeric_array)
 		-	[strict_date_array](#strict_date_array)
 		-	[square_matrix](#square_matrix)
+		-	[array_min](#array_min)
+		-	[array_max](#array_max)
+		-	[number_array_min](#number_array_min)
+		-	[number_array_max](#number_array_max)
 		-	[unique](#unique)
 		-	[permutation](#permutation)
 	*	[Time](#time)
@@ -583,38 +585,6 @@ validate( 'number_array', [NaN,2] );
 ```
 
 
-##### [number_array_min](https://github.com/validate-io/number-array-min)
-
-Validates if a `value` is a `number array` in which no element exceeds a minimum value.
-
-``` javascript
-validate( 'number_array_min[2]', [3.14,2] );
-// returns true
-
-validate( 'number_array_min[3]', [5,2] );
-// returns false
-
-validate( 'number_array_min[0]', [NaN,2] );
-// returns false
-```
-
-
-##### [number_array_max](https://github.com/validate-io/number-array-max)
-
-Validates if a `value` is a `number array` in which no element exceeds a maximum value.
-
-``` javascript
-validate( 'number_array_max[4]', [3.14,2] );
-// returns true
-
-validate( 'number_array_max[4]', [5,2] );
-// returns false
-
-validate( 'number_array_max[4]', [NaN,2] );
-// returns false
-```
-
-
 ##### [integer_array](https://github.com/validate-io/integer-array)
 
 Validates if a `value` is an `integer array`.
@@ -706,6 +676,73 @@ validate( 'square_matrix', [[1,2],[1,2]] );
 validate( 'square_matrix', [[1],[1,2]] );
 // returns false
 ```
+
+
+
+##### [array_min](https://github.com/validate-io/array-min)
+
+Validates if a `value` is an `array` in which no element exceeds a minimum value.
+
+``` javascript
+validate( 'array_min[a]', ['b','c'] );
+// returns true
+
+validate( 'array_min[c]', ['b','c'] );
+// returns false
+```
+
+__WARNING__: comparison occurs between `strings` and thus follows lexicographic ordering.
+
+
+##### [array_max](https://github.com/validate-io/array-max)
+
+Validates if a `value` is an `array` in which no element exceeds a maximum value.
+
+``` javascript
+validate( 'array_max[e]', ['a','b'] );
+// returns true
+
+validate( 'array_max[a]', ['a','b'] );
+// returns false
+```
+
+__WARNING__: comparison occurs betweens `strings` and thus follows lexicographic ordering.
+
+
+
+
+
+##### [number_array_min](https://github.com/validate-io/number-array-min)
+
+Validates if a `value` is a `number array` in which no element exceeds a minimum value.
+
+``` javascript
+validate( 'number_array_min[2]', [3.14,2] );
+// returns true
+
+validate( 'number_array_min[3]', [5,2] );
+// returns false
+
+validate( 'number_array_min[0]', [NaN,2] );
+// returns false
+```
+
+
+##### [number_array_max](https://github.com/validate-io/number-array-max)
+
+Validates if a `value` is a `number array` in which no element exceeds a maximum value.
+
+``` javascript
+validate( 'number_array_max[4]', [3.14,2] );
+// returns true
+
+validate( 'number_array_max[4]', [5,2] );
+// returns false
+
+validate( 'number_array_max[4]', [NaN,2] );
+// returns false
+```
+
 
 
 ##### [unique](https://github.com/validate-io/unique)

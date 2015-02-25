@@ -62,6 +62,8 @@
     "validate.io-alphanumeric-array": "^1.0.0",
     "validate.io-array": "1.0.x",
     "validate.io-array-array": "^1.0.0",
+    "validate.io-array-max": "^1.0.0",
+    "validate.io-array-min": "^1.0.0",
     "validate.io-boolean": "1.0.x",
     "validate.io-boolean-array": "^1.0.0",
     "validate.io-empty": "1.0.x",

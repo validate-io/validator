@@ -20,10 +20,10 @@ var expect = chai.expect,
 
 describe( 'input-validation', function tests() {
 
-	describe( 'number_array', function tests() {
+	describe( 'number_array_min', function tests() {
 
 		it( 'should positively validate', function test() {
-			assert.ok( validate( 'number_array', [3.14,2] ) );
+			assert.ok( validate( 'number_array_max[4]', [3.14,2] ) );
 		});
 
 		it( 'should negatively validate', function test() {
@@ -35,12 +35,12 @@ describe( 'input-validation', function tests() {
 				null,
 				function(){},
 				undefined,
-				[],
-				[NaN,2]
+				[NaN,2],
+				[1,2]
 			];
 
 			for ( var i = 0; i < values.length; i++ ) {
-				assert.notOk( validate( 'number_array', values[i] ) );
+				assert.notOk( validate( 'number_array_max[-999999]', values[i] ) );
 			}
 		});
 

@@ -44,6 +44,7 @@ The primary [motivation](https://github.com/validate-io/overview) for this modul
 		-	[boolean_array](#boolean_array)
 		-	[string_array](#string_array)
 		-	[number_array](#number_array)
+		-	[number_array_min](#number_array_min)
 		-	[number_array_max](#number_array_max)
 		-	[integer_array](#integer_array)
 		-	[nonnegative_integer_array](#nonnegative_integer_array)
@@ -578,6 +579,22 @@ validate( 'number_array', [3.14,2] );
 // returns true
 
 validate( 'number_array', [NaN,2] );
+// returns false
+```
+
+
+##### [number_array_min](https://github.com/validate-io/number-array-min)
+
+Validates if a `value` is a `number array` in which no element exceeds a minimum value.
+
+``` javascript
+validate( 'number_array_min[2]', [3.14,2] );
+// returns true
+
+validate( 'number_array_min[3]', [5,2] );
+// returns false
+
+validate( 'number_array_min[0]', [NaN,2] );
 // returns false
 ```
 

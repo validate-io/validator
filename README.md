@@ -23,6 +23,8 @@ The primary [motivation](https://github.com/validate-io/overview) for this modul
 		- 	[uppercase](#uppercase)
 	*	[Numbers](#numbers)
 		-	[number](#number)
+		-	[nonnegative](#nonnegative)
+		-	[positive](#positive)
 		-	[integer](#integer)
 		-	[nonnegative_integer](#nonnegative_integer)
 		-	[positive_integer](#positive_integer)
@@ -42,7 +44,9 @@ The primary [motivation](https://github.com/validate-io/overview) for this modul
 		-	[boolean_array](#boolean_array)
 		-	[string_array](#string_array)
 		-	[number_array](#number_array)
+		-	[number_array_max](#number_array_max)
 		-	[integer_array](#integer_array)
+		-	[nonnegative_integer_array](#nonnegative_integer_array)
 		-	[object_array](#object_array)
 		-	[array_array](#array_array)
 		-	[alphanumeric_array](#alphanumeric_array)
@@ -276,6 +280,39 @@ validate( 'number', NaN );
 
 __Note__: `NaN` is __not__ validated as a `number`. Both positive and negative `infinity` __are__ validated as `numbers`.
 
+
+
+
+##### [nonnegative](https://github.com/validate-io/nonnegative)
+
+Validates if a `value` is a nonnegative `number`.
+
+``` javascript
+validate( 'nonnegative', 5 );
+// returns true
+
+validate( 'nonnegative', 0 );
+// returns true
+
+validate( 'nonnegative', -Math.PI );
+// returns false
+```
+
+
+##### [positive](https://github.com/validate-io/positive)
+
+Validates if a `value` is a positive `number`.
+
+``` javascript
+validate( 'positive', 5 );
+// returns true
+
+validate( 'positive', 0 );
+// returns false
+
+validate( 'positive', -Math.PI );
+// returns false
+```
 
 
 ##### [integer](https://github.com/validate-io/integer)
@@ -534,13 +571,29 @@ validate( 'string_array', [1,2] );
 
 ##### [number_array](https://github.com/validate-io/number-array)
 
-Validates if a `value` is an `number array`.
+Validates if a `value` is a `number array`.
 
 ``` javascript
 validate( 'number_array', [3.14,2] );
 // returns true
 
 validate( 'number_array', [NaN,2] );
+// returns false
+```
+
+
+##### [number_array_max](https://github.com/validate-io/number-array-max)
+
+Validates if a `value` is a `number array` in which no element exceeds a maximum value.
+
+``` javascript
+validate( 'number_array_max[4]', [3.14,2] );
+// returns true
+
+validate( 'number_array_max[4]', [5,2] );
+// returns false
+
+validate( 'number_array_max[4]', [NaN,2] );
 // returns false
 ```
 
@@ -554,6 +607,19 @@ validate( 'integer_array', [1,2] );
 // returns true
 
 validate( 'integer_array', ['1','2'] );
+// returns false
+```
+
+
+##### [nonnegative_integer_array](https://github.com/validate-io/nonnegative_integer-array)
+
+Validates if a `value` is a nonnegative `integer array`.
+
+``` javascript
+validate( 'nonnegative_integer_array', [1,0,2] );
+// returns true
+
+validate( 'nonnegative_integer_array', [1,-1,2] );
 // returns false
 ```
 

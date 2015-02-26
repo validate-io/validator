@@ -59,6 +59,7 @@ The primary [motivation](https://github.com/validate-io/overview) for this modul
 		-	[number_array_max](#number_array_max)
 		-	[unique](#unique)
 		-	[permutation](#permutation)
+		-	[size](#size)
 	*	[Time](#time)
 		- 	[strict_date](#strict_date)
 		-	[timestamp](#timestamp)
@@ -807,6 +808,26 @@ validate( 'permutation[1,2,3]', ['1','2','1'] );
 
 __WARNING__: the permutation parameter `array` is cast as a `string array`. Hence, in order to handle numeric `arrays`, cast numeric values to `strings` __before__ attempting to validate.
 
+
+
+##### [size](https://github.com/validate-io/size)
+
+Validates if a `value` is a multidimensional `array` of specified dimensions.
+
+``` javascript
+validate( 'size[1,3]', [1,2,3] );
+// returns true
+
+validate( 'size[2,3]', [[1,2],[1,2]] );
+// returns false
+```
+
+Use wildcards to restrict the validated dimensions.
+
+``` javascript
+validate( 'size[1,*,2]', [[[1,2],[1,2]]] );
+// returns true
+```
 
 
 

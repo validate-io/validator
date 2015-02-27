@@ -701,6 +701,20 @@ validate( 'strict_date_array', [new Date(), Date.now()] );
 ```
 
 
+
+##### [logical_array](https://github.com/validate-io/logical-array)
+
+Validates if a `value` is a logical `array`; i.e., an `array` consisting exclusively of numeric `0s` and `1s`.
+
+``` javascript
+validate( 'logical_array', [1,0,0,1,1] );
+// returns true
+
+validate( 'logical_array', [true,false] );
+// returns false
+```
+
+
 ##### [square_matrix](https://github.com/validate-io/square-matrix)
 
 Validates if a `value` is an `array` of `arrays` and has equal dimensions.

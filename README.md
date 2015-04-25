@@ -71,6 +71,7 @@ The primary [motivation](https://github.com/validate-io/overview) for this modul
 	* 	[function](#function)
 	*	[regexp](#regexp)
 	* 	[ip_address](#ip_address)
+	*	[uri](#uri)
 	*	[greater_than](#greater_than)
 	*	[less_than](#less_than)
 	*	[interval](#interval)
@@ -1018,6 +1019,20 @@ validate( 'ip_address', '256.248.10.46' );
 __Note__: validates that a `value` is a `string`.
 
 
+===
+#### [uri](https://github.com/validate-io/uri)
+
+Validates if a `value` is a [URI](http://en.wikipedia.org/wiki/URI_scheme).
+
+``` javascript
+validate( 'uri', 'http://google.com' );
+// returns true
+
+validate( 'uri', '://foo.com/' );
+// returns false
+```
+
+__Note__: for non-string input `values`, the function returns `false`.
 
 
 

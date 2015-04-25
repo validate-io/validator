@@ -271,6 +271,33 @@ validate( 'uppercase', 'Beep' );
 __Note__: validates that a `value` is a `string`. 
 
 
+##### [anagram](https://github.com/validate-io/anagram)
+
+Validates if a `value` is an anagram.
+
+``` javascript
+validate( 'anagram[dog]', 'god' );
+// returns true
+
+validate( 'anagram[beep]', 'hello' );
+// returns false
+```
+
+
+
+##### [alphagram](https://github.com/validate-io/alphagram)
+
+Validates if a `value` is an alphagram.
+
+``` javascript
+validate( 'alphagram', 'beep' );
+// returns true
+
+validate( 'alphagram', 'hello' );
+// returns false
+```
+
+__Note__: the `function` returns `false` if provided a non-string value.
 
 
 ===

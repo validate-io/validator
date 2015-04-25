@@ -48,6 +48,9 @@ The primary [motivation](https://github.com/validate-io/overview) for this modul
 		-	[number_array](#number_array)
 		-	[integer_array](#integer_array)
 		-	[nonnegative_integer_array](#nonnegative_integer_array)
+		-	[positive_integer_array](#positive_integer_array)
+		-	[nonpositive_integer_array](#nonpositive_integer_array)
+		-	[negative_integer_array](#negative_integer_array)
 		-	[object_array](#object_array)
 		-	[array_array](#array_array)
 		-	[alphanumeric_array](#alphanumeric_array)
@@ -643,6 +646,45 @@ validate( 'nonnegative_integer_array', [1,0,2] );
 // returns true
 
 validate( 'nonnegative_integer_array', [1,-1,2] );
+// returns false
+```
+
+
+##### [positive_integer_array](https://github.com/validate-io/positive_integer-array)
+
+Validates if a `value` is a positive `integer array`.
+
+``` javascript
+validate( 'positive_integer_array', [1,1,2] );
+// returns true
+
+validate( 'positive_integer_array', [1,0,2] );
+// returns false
+```
+
+
+##### [nonpositive_integer_array](https://github.com/validate-io/nonpositive_integer-array)
+
+Validates if a `value` is a nonpositive `integer array`.
+
+``` javascript
+validate( 'nonpositive_integer_array', [-1,0,-2] );
+// returns true
+
+validate( 'nonpositive_integer_array', [-1,1,-2] );
+// returns false
+```
+
+
+##### [negative_integer_array](https://github.com/validate-io/negative_integer-array)
+
+Validates if a `value` is a negative `integer array`.
+
+``` javascript
+validate( 'negative_integer_array', [-1,-2,-3] );
+// returns true
+
+validate( 'negative_integer_array', [1,-0,-2] );
 // returns false
 ```
 

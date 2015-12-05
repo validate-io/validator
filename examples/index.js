@@ -2,56 +2,75 @@
 
 var validate = require( './../lib' );
 
-
-// CLASS //
-
-function Beep() {
-	this._boop = '';
-	this._bap = 11;
-	this._foo = 'beep';
-	return this;
+function is( bool, value, msg ) {
+	if ( validate.isRegexp( value ) ) {
+		value = value.toString();
+	}
+	else if ( validate.isFunction( value ) ) {
+		value = value.constructor.name;
+	}
+	else {
+		value = JSON.stringify( value );
+	}
+	console.log( '%s is %s%s', value, ( bool ) ? '' : 'not ', msg );
 }
 
-Beep.prototype.boop = function( value ) {
-	var rules = 'string|length[0,12]';
-	if ( !validate( rules, value ) ) {
-		throw new TypeError( 'boop()::invalid input argument. Must be a string less than 13 characters long.' );
+var methods,
+	bool,
+	vals,
+	fcn,
+	msg,
+	v,
+	N, M,
+	i, j;
+
+vals = [
+	'beep',
+	5,
+	Math.PI,
+	-0,
+	true,
+	null,
+	undefined,
+	[],
+	{},
+	function foo(){},
+	/.*/,
+	new Date(),
+	-1,
+	JSON.parse
+];
+
+methods = [
+	[ validate.isStringPrimitive, 'a string' ],
+	[ validate.isNegativeZero, 'negative zero' ],
+	[ validate.isPositiveInteger, 'a positive integer' ],
+	[ validate.isPositive, 'a positive number' ],
+	[ validate.isNegativeInteger, 'a negative integer' ],
+	[ validate.isNull, 'null' ],
+	[ validate.isUndefined, 'undefined' ],
+	[ validate.isBoolean, 'a boolean' ],
+	[ validate.isNativeFunction, 'a native function' ],
+	[ validate.isFunction, 'a function' ],
+	[ validate.isArray, 'an array' ],
+	[ validate.isStrictDate, 'a date object' ],
+	[ validate.isRegexp, 'a regular expression' ],
+	[ validate.isObject, 'an object' ]
+];
+
+N = vals.length;
+M = methods.length;
+for ( i = 0; i < N; i++ ) {
+	v = vals[ i ];
+	for ( j = 0; j < M; j++ ) {
+		fcn = methods[ j ][ 0 ];
+		msg = methods[ j ][ 1 ];
+		bool = fcn( v );
+		if ( bool ) {
+			is( bool, v, msg );
+			break;
+		} else {
+			is( bool, v, msg );
+		}
 	}
-	this._boop = value;
-	return this;
-};
-
-Beep.prototype.bap = function( value ) {
-	var rules = 'integer|greater_than[10]';
-	if ( !validate( rules, value ) ) {
-		throw new TypeError( 'bap()::invalid input argument. Must be an integer greater than 10.' );
-	}
-	this._bap = value;
-	return this;
-};
-
-Beep.prototype.foo = function( value ) {
-	var rules = 'matches[beep,boop,bap,foo,bar]';
-	if ( !validate( rules, value ) ) {
-		throw new TypeError( 'foo()::invalid input argument. Must be one of the following: beep,boop,bap,foo,bar.' );
-	}
-	this._foo = value;
-	return this;
-};
-
-Beep.prototype.toString = function() {
-	var str = this._boop + ' ' + this._foo + ' ' + this._bap + '.';
-	return str;
-};
-
-
-// APPLICATION //
-
-var beep = new Beep();
-
-beep
-	.boop( 'Hello' )
-	.bap( 42 )
-	.foo( 'bar' );
-
-console.log( beep.toString() );
+}

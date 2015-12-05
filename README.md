@@ -4,7 +4,7 @@ Validate
 
 > Validation utilities.
 
-The primary [motivation][validate-io-overview] for this module is to validate input arguments provided to publicly exposed methods. Other utilities exist but are either limited, more verbose (use method chaining), used as if asynchronous (callbacks), or part of some larger utility library (e.g., [underscore][lodash].  
+The primary [motivation][validate-overview] for this module is to validate input arguments provided to publicly exposed methods. Other utilities exist but are either limited, more verbose (use method chaining), used as if asynchronous (callbacks), or part of some larger utility library (e.g., [underscore][lodash].  
 
 
 1. 	[Installation](#installation)

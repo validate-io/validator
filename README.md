@@ -299,7 +299,7 @@ Copyright &copy; 2014-2015. The Validate.io Authors.
 
 [lodash]: http://lodash.com/
 
-[overview]: https://github.com/validate-io/overview
+[validate-overview]: https://github.com/validate-io/overview
 
 [validate-ip-address]: https://github.com/validate-io/ip-address
 [validate-absolute-time]: https://github.com/validate-io/absolute-time

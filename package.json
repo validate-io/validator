@@ -22,6 +22,7 @@
     "type": "git",
     "url": "git://github.com/validate-io/validator.git"
   },
+  "tonicExampleFile": "./examples",
   "keywords": [
     "validate.io",
     "validator",
